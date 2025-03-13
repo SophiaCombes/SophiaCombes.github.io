@@ -18,6 +18,52 @@ body {
 
 
 
+/* Container for the whole carousel */
+.carousel-container {
+    position: relative;
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto;
+}
+
+/* Style the images inside the carousel */
+.carousel img {
+    width: 100%; /* Makes each image take full width of the container */
+    border: 5px solid black; /* Black border around the images */
+    display: block;
+}
+
+/* Hide all images by default (for the carousel effect) */
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+/* Style for arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #8cd3e2; /* Arrow color */
+    text-decoration: none;
+    padding: 10px;
+    z-index: 10; /* Ensures the arrows are above the images */
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+
+
+
+
+
+
+
 
 
 
