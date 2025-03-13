@@ -1,3 +1,12 @@
+body {
+    background-color: #181818; /* Dark background */
+    color: white; /* White text for contrast */
+    font-family: 'Roboto Mono', monospace; /* Applying Roboto Mono */
+    margin: 0;
+    padding: 0;
+}
+
+
 /* Style for the sidebar */
 .sidebar {
     position: fixed;
