@@ -9,28 +9,28 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 /* Style for the image buttons */
 .sidebar a {
-    margin: 15px 0;
+    margin: 15px 0; /* Slightly reduced margin to fit images better */
     display: block;
 }
 
 .sidebar img {
-    width: 170px; /* Increased image size */
+    width: 180px; /* Nearly full width of the navbar */
     height: auto;
     transition: transform 0.2s;
 }
 
 /* Hover effect */
 .sidebar img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Content area to prevent overlap */
 .content {
-    margin-left: 220px; /* Adjusted to match the sidebar width */
-    padding: 20px;
+    margin-left: 220px; /* Adjusted for sidebar width */
+    padding: 30px;
 }
