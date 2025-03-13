@@ -18,45 +18,44 @@ body {
 
 
 
-/* Container for the whole carousel */
+/* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 80%; /* Adjust the width as needed */
-    margin: 0 auto;
+    width: 50%; /* Adjust based on your design */
+    margin: auto;
+    padding-top: 80px; /* Adds space to the top to prevent overlap with the navbar */
 }
 
-/* Style the images inside the carousel */
+/* Styling for carousel images */
 .carousel img {
-    width: 100%; /* Makes each image take full width of the container */
-    border: 5px solid black; /* Black border around the images */
-    display: block;
+    width: 100%;           /* Makes the image fill the width of the container */
+    max-width: 100%;       /* Keeps the image within the container's bounds */
+    height: auto;          /* Maintains the aspect ratio */
+    display: none;         /* Hides images initially */
+    border: 40px solid black; /* Adds a 40px solid black border around the images */
 }
 
-/* Hide all images by default (for the carousel effect) */
-.carousel {
-    display: flex;
-    overflow: hidden;
-}
-
-/* Style for arrows */
+/* Styling for carousel navigation arrows */
 .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     font-size: 30px;
-    color: #8cd3e2; /* Arrow color */
+    color: #8cd3e2;
     text-decoration: none;
-    padding: 10px;
-    z-index: 10; /* Ensures the arrows are above the images */
 }
 
+/* Left arrow position */
 .left-arrow {
-    left: 0;
+    left: 10px;
 }
 
+/* Right arrow position */
 .right-arrow {
-    right: 0;
+    right: 10px;
 }
+
+
 
 
 
