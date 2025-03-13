@@ -6,6 +6,22 @@ body {
     padding: 0;
 }
 
+.resize-image {
+    width: 50%;  /* Set width to 300px */
+    height: auto;  /* Maintain aspect ratio */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* nav bar starts here */
 
 /* Style for the sidebar */
 .sidebar {
@@ -43,3 +59,6 @@ body {
     margin-left: 220px; /* Adjusted for sidebar width */
     padding: 30px;
 }
+
+/*nav bar ends here*/
+
