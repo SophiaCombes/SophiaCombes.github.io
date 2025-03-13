@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 200px; /* Increased width */
+    width: 200px; /* Sidebar width */
     height: 100vh;
     background-color: black;
     display: flex;
@@ -19,7 +19,7 @@
 }
 
 .sidebar img {
-    width: 100px; /* Increased image size */
+    width: 170px; /* Increased image size */
     height: auto;
     transition: transform 0.2s;
 }
