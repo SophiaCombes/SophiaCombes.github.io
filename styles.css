@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 80px; /* Adjust width as needed */
+    width: 200px; /* Adjust width as needed */
     height: 100vh;
     background-color: black;
     display: flex;
@@ -19,7 +19,7 @@
 }
 
 .sidebar img {
-    width: 50px; /* Adjust size */
+    width: 100px; /* Adjust size */
     height: auto;
     transition: transform 0.2s;
 }
