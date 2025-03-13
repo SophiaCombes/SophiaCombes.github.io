@@ -21,18 +21,18 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 50%; /* Adjust based on your design */
+    width: 20%; /* Reduced the width of the carousel */
     margin: auto;
-    padding-top: 80px; /* Adds space to the top to prevent overlap with the navbar */
+    padding-top: 80px; /* Ensures it's not under the navbar */
 }
 
 /* Styling for carousel images */
 .carousel img {
-    width: 100%;           /* Makes the image fill the width of the container */
-    max-width: 100%;       /* Keeps the image within the container's bounds */
-    height: auto;          /* Maintains the aspect ratio */
-    display: none;         /* Hides images initially */
-    border: 40px solid black; /* Adds a 40px solid black border around the images */
+    width: 100%;           /* Ensures images fill the container */
+    max-width: 100%;       /* Keeps images within bounds */
+    height: auto;          /* Maintains aspect ratio */
+    display: none;         /* Initially hides images */
+    border: 40px solid black; /* Adds 40px thick border */
 }
 
 /* Styling for carousel navigation arrows */
@@ -43,17 +43,40 @@ body {
     font-size: 30px;
     color: #8cd3e2;
     text-decoration: none;
+    z-index: 2; /* Ensures arrows stay above images */
 }
 
 /* Left arrow position */
 .left-arrow {
-    left: 10px;
+    left: -50px; /* Move the arrow outside of the carousel */
 }
 
 /* Right arrow position */
 .right-arrow {
-    right: 10px;
+    right: -50px; /* Move the arrow outside of the carousel */
 }
+
+/* Scroll indicator styling */
+.scrollbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.scrollbar div {
+    width: 20px;          /* Size of the indicator dots */
+    height: 5px;          /* Height of the indicator */
+    margin: 0 5px;        /* Space between the indicators */
+    background-color: #78858b; /* Default color for inactive dots */
+    border-radius: 50px;   /* Rounded corners for the dots */
+    transition: background-color 0.3s; /* Smooth transition for color change */
+}
+
+/* Active scrollbar dot styling */
+.scrollbar .active {
+    background-color: #8cd3e2; /* Highlight active image */
+}
+
 
 
 

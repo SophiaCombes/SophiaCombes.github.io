@@ -1,34 +1,45 @@
+// Get carousel images and arrows
+const images = document.querySelectorAll('.carousel img');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
+const dots = document.querySelectorAll('.scrollbar .dot'); // All dots in the scrollbar
 
-// Initialize the current image index to 0 (start with the first image)
+// Set initial image index
 let currentIndex = 0;
 
-// Select all the images inside the carousel
-const images = document.querySelectorAll('.carousel img');
+// Function to show the next image
+function showNextImage() {
+    images[currentIndex].style.display = 'none'; // Hide current image
+    dots[currentIndex].classList.remove('active'); // Remove active class from current dot
 
-// Get the total number of images
-const totalImages = images.length;
+    currentIndex = (currentIndex + 1) % images.length; // Increment index and loop back to 0 if at the end
 
-// Function to show the current image
-function showImage(index) {
-    // Hide all images
-    images.forEach(image => image.style.display = 'none');
-
-    // Show the current image
-    images[index].style.display = 'block';
+    images[currentIndex].style.display = 'block'; // Show next image
+    dots[currentIndex].classList.add('active'); // Add active class to the new dot
 }
 
-// Show the first image initially
-showImage(currentIndex);
+// Function to show the previous image
+function showPreviousImage() {
+    images[currentIndex].style.display = 'none'; // Hide current image
+    dots[currentIndex].classList.remove('active'); // Remove active class from current dot
 
-// Add event listeners for left and right arrows to navigate images
-document.querySelector('.left-arrow').addEventListener('click', () => {
-    // Go to the previous image
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    showImage(currentIndex);
+    currentIndex = (currentIndex - 1 + images.length) % images.length; // Decrement index and loop to the end if at the beginning
+
+    images[currentIndex].style.display = 'block'; // Show previous image
+    dots[currentIndex].classList.add('active'); // Add active class to the new dot
+}
+
+// Event listeners for arrows
+leftArrow.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default action (scrolling to top)
+    showPreviousImage();
 });
 
-document.querySelector('.right-arrow').addEventListener('click', () => {
-    // Go to the next image
-    currentIndex = (currentIndex + 1) % totalImages;
-    showImage(currentIndex);
+rightArrow.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent default action (scrolling to top)
+    showNextImage();
 });
+
+// Initially display the first image and activate its dot
+images[currentIndex].style.display = 'block';
+dots[currentIndex].classList.add('active');
