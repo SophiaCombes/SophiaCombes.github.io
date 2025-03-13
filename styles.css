@@ -48,12 +48,12 @@ body {
 
 /* Left arrow position */
 .left-arrow {
-    left: -50px; /* Move the arrow outside of the carousel */
+    left: -70px; /* Move the arrow outside of the carousel */
 }
 
 /* Right arrow position */
 .right-arrow {
-    right: -50px; /* Move the arrow outside of the carousel */
+    right: -70px; /* Move the arrow outside of the carousel */
 }
 
 /* Scroll indicator styling */
@@ -76,6 +76,7 @@ body {
 .scrollbar .active {
     background-color: #8cd3e2; /* Highlight active image */
 }
+
 
 
 
