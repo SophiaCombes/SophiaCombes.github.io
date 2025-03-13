@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    width: 200px; /* Adjust width as needed */
+    width: 200px; /* Increased width */
     height: 100vh;
     background-color: black;
     display: flex;
@@ -19,7 +19,7 @@
 }
 
 .sidebar img {
-    width: 100px; /* Adjust size */
+    width: 100px; /* Increased image size */
     height: auto;
     transition: transform 0.2s;
 }
@@ -31,7 +31,6 @@
 
 /* Content area to prevent overlap */
 .content {
-    margin-left: 100px; /* Should be more than sidebar width */
+    margin-left: 220px; /* Adjusted to match the sidebar width */
     padding: 20px;
 }
-
