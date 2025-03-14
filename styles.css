@@ -29,8 +29,15 @@ body {
 
 
 /* Styling for carousel images */
+.carousel {
+    display: flex;
+    justify-content: center; /* Center images horizontally */
+    align-items: center; /* Center images vertically */
+    height: 100%; /* Ensure the carousel takes full height */
+}
+
 .carousel img {
-    width: 93%;           /* Ensures images fill the container */
+    width: 86%;           /* Ensures images fill the container */
     max-width: calc(100% - 50px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
