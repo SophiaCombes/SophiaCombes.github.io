@@ -20,14 +20,14 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 60%; /* Reduced the width of the carousel */
+    width: 40%; /* Reduced the width of the carousel */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
 }
 
 /* Styling for carousel images */
 .carousel img {
-    width: 100%;           /* Ensures images fill the container */
+    width: 95%;           /* Ensures images fill the container */
     max-width: 100%;       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
