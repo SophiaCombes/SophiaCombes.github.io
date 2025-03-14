@@ -1,45 +1,37 @@
-// Get carousel images and arrows
 const images = document.querySelectorAll('.carousel img');
 const leftArrow = document.querySelector('.left-arrow');
 const rightArrow = document.querySelector('.right-arrow');
-const dots = document.querySelectorAll('.scrollbar .dot'); // All dots in the scrollbar
+const dots = document.querySelectorAll('.scrollbar .dot');
 
 // Set initial image index
 let currentIndex = 0;
 
-// Function to show the next image
-function showNextImage() {
-    images[currentIndex].style.display = 'none'; // Hide current image
-    dots[currentIndex].classList.remove('active'); // Remove active class from current dot
+// Function to show the current image
+function showImage(index) {
+    // Hide all images
+    images.forEach(img => img.style.display = 'none');
+    // Remove active class from all dots
+    dots.forEach(dot => dot.classList.remove('active'));
 
-    currentIndex = (currentIndex + 1) % images.length; // Increment index and loop back to 0 if at the end
-
-    images[currentIndex].style.display = 'block'; // Show next image
-    dots[currentIndex].classList.add('active'); // Add active class to the new dot
+    // Show the correct image
+    images[index].style.display = 'block';
+    // Highlight the correct dot
+    dots[index].classList.add('active');
 }
 
-// Function to show the previous image
-function showPreviousImage() {
-    images[currentIndex].style.display = 'none'; // Hide current image
-    dots[currentIndex].classList.remove('active'); // Remove active class from current dot
+// Show the first image initially
+showImage(currentIndex);
 
-    currentIndex = (currentIndex - 1 + images.length) % images.length; // Decrement index and loop to the end if at the beginning
-
-    images[currentIndex].style.display = 'block'; // Show previous image
-    dots[currentIndex].classList.add('active'); // Add active class to the new dot
-}
-
-// Event listeners for arrows
-leftArrow.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default action (scrolling to top)
-    showPreviousImage();
-});
-
+// Next Image
 rightArrow.addEventListener('click', (event) => {
-    event.preventDefault(); // Prevent default action (scrolling to top)
-    showNextImage();
+    event.preventDefault(); // Prevent scrolling to the top
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
 });
 
-// Initially display the first image and activate its dot
-images[currentIndex].style.display = 'block';
-dots[currentIndex].classList.add('active');
+// Previous Image
+leftArrow.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent scrolling to the top
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+});

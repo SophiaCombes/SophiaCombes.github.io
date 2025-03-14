@@ -79,7 +79,7 @@ body {
     width: 20px;
     height: 5px;
     margin: 0 5px;
-    background-color: #78858b;
+    background-color: #bbb;
     border-radius: 50px;
     transition: background-color 0.3s;
 }
@@ -88,6 +88,7 @@ body {
 .scrollbar .active {
     background-color: #8cd3e2;
 }
+   
 
 
 
