@@ -20,7 +20,7 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 20%; /* Reduced the width of the carousel */
+    width: 30%; /* Reduced the width of the carousel */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
 }
