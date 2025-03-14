@@ -20,10 +20,7 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 510px; /* Set the width to 510px */
-    max-width: 510px; /* Ensure the max-width is also 510px */
-    height: 510px; /* Set the height to 510px */
-    max-height: 510px; /* Ensure the max-height is also 510px */
+    width: 50%; /* Set the width to 50% */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
     z-index: 1;
@@ -47,8 +44,8 @@ body {
     max-width: calc(100% - 50px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
-    border: 20px solid black; /* Adds 20px thick border */
-    filter: saturate(1.5); /* Increase saturation by 50% */
+    border: 30px solid black; /* Adds 20px thick border */
+    filter: saturate(1.7); /* Increase saturation by 50% */
 }
 
 /* Styling for carousel navigation arrows */
@@ -56,7 +53,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 30px;
+    font-size: 40px;
     color: #8cd3e2;
     text-decoration: none;
     z-index: 2; /* Ensures arrows stay above images */
@@ -64,12 +61,12 @@ body {
 
 /* Left arrow position */
 .left-arrow {
-    left: 10px; /* Move the arrow outside of the carousel */
+    left: -50px; /* Move the arrow outside of the carousel */
 }
 
 /* Right arrow position */
 .right-arrow {
-    right: 10px; /* Move the arrow outside of the carousel */
+    right: -50px; /* Move the arrow outside of the carousel */
 }
 
 /* Media query for smaller screens */
@@ -104,6 +101,7 @@ body {
     width: 20px;          /* Size of the indicator dots */
     height: 5px;          /* Height of the indicator */
     margin: 0 5px;        /* Space between the indicators */
+    margin-bottom: 100px;
     background-color: #bbb; /* Default color for inactive dots */
     border-radius: 50px;   /* Rounded corners for the dots */
     transition: background-color 0.3s; /* Smooth transition for color change */
