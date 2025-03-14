@@ -38,7 +38,7 @@ body {
     display: flex;
     justify-content: center; /* Center images horizontally */
     align-items: center; /* Center images vertically */
-    height: 100%; /* Ensure the carousel takes full height */
+    height: calc(100% - 40px); /* Ensure the carousel takes full height */
     width: 100%; /* Ensure the carousel takes full width */
 }
 
