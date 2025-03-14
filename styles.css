@@ -20,10 +20,10 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 100%; /* Reduced the width of the carousel */
-    max-width: 510px;
-    height: 510px;
-    max-height: 510px;
+    width: 510px; /* Set the width to 510px */
+    max-width: 510px; /* Ensure the max-width is also 510px */
+    height: 510px; /* Set the height to 510px */
+    max-height: 510px; /* Ensure the max-height is also 510px */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
     z-index: 1;
@@ -39,6 +39,7 @@ body {
     justify-content: center; /* Center images horizontally */
     align-items: center; /* Center images vertically */
     height: 100%; /* Ensure the carousel takes full height */
+    width: 100%; /* Ensure the carousel takes full width */
 }
 
 .carousel img {
