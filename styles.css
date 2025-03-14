@@ -20,10 +20,11 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 30%; /* Reduced the width of the carousel */
+    width: 100%; /* Reduced the width of the carousel */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
 }
+
 
 /* Styling for carousel images */
 .carousel img {
@@ -32,6 +33,7 @@ body {
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
     border: 40px solid black; /* Adds 40px thick border */
+    filter: saturate(1.0); /* Increase saturation by 50% */
 }
 
 /* Styling for carousel navigation arrows */
