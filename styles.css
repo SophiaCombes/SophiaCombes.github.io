@@ -17,20 +17,26 @@ body {
 
 
 
+/* Container for both carousels */
+.carousels-container {
+    display: flex;
+    justify-content: space-around; /* Space between the carousels */
+    flex-wrap: wrap; /* Wrap carousels to the next line if needed */
+}
+
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 50%; /* Reduced the width of the carousel */
-    max-width: 600px;
-    margin: auto;
-    padding-top: 80px; /* Ensures it's not under the navbar */
+    width: 45%; /* Use percentage for responsive width */
+    max-width: 600px; /* Set a maximum width */
+    margin: 20px auto; /* Add margin for spacing */
+    padding-top: 20px; /* Ensures it's not under the navbar */
 }
-
 
 /* Styling for carousel images */
 .carousel img {
     width: 100%;           /* Ensures images fill the container */
-    max-width: calc(95% - 50px);       /* Keeps images within bounds */
+    max-width: 100%;       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
     border: 20px solid black; /* Adds 20px thick border */
@@ -50,12 +56,12 @@ body {
 
 /* Left arrow position */
 .left-arrow {
-    left: 10px; /* Move the arrow outside of the carousel */
+    left: 10px; /* Move the arrow inside the carousel */
 }
 
 /* Right arrow position */
 .right-arrow {
-    right: 10px; /* Move the arrow outside of the carousel */
+    right: 10px; /* Move the arrow inside the carousel */
 }
 
 /* Media query for smaller screens */
@@ -77,27 +83,6 @@ body {
     .carousel-arrow {
         font-size: 20px; /* Adjust arrow size for very small screens */
     }
-}
-
-/* Scroll indicator styling */
-.scrollbar {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.scrollbar div {
-    width: 20px;          /* Size of the indicator dots */
-    height: 5px;          /* Height of the indicator */
-    margin: 0 5px;        /* Space between the indicators */
-    background-color: #bbb; /* Default color for inactive dots */
-    border-radius: 50px;   /* Rounded corners for the dots */
-    transition: background-color 0.3s; /* Smooth transition for color change */
-}
-
-/* Active scrollbar dot styling */
-.scrollbar .active {
-    background-color: #8cd3e2; /* Highlight active image */
 }
 
 
