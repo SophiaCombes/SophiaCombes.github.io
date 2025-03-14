@@ -20,7 +20,7 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 50%; /* Set the width to 50% */
+    width: 40%; /* Set the width to 50% */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
     z-index: 1;
@@ -44,7 +44,7 @@ body {
     max-width: calc(100% - 50px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
-    border: 30px solid black; /* Adds 20px thick border */
+    border: 20px solid black; /* Adds 20px thick border */
     filter: saturate(1.7); /* Increase saturation by 50% */
 }
 
@@ -61,12 +61,12 @@ body {
 
 /* Left arrow position */
 .left-arrow {
-    left: -50px; /* Move the arrow outside of the carousel */
+    left: -40px; /* Move the arrow outside of the carousel */
 }
 
 /* Right arrow position */
 .right-arrow {
-    right: -50px; /* Move the arrow outside of the carousel */
+    right: -28px; /* Move the arrow outside of the carousel */
 }
 
 /* Media query for smaller screens */
