@@ -37,7 +37,7 @@ body {
 }
 
 .carousel img {
-    width: 86%;           /* Ensures images fill the container */
+    width: 80%;           /* Ensures images fill the container */
     max-width: calc(100% - 50px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
