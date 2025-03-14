@@ -20,7 +20,7 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 50%; /* Reduced the width of the carousel */
+    width: 70%; /* Reduced the width of the carousel */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
 }
@@ -28,12 +28,12 @@ body {
 
 /* Styling for carousel images */
 .carousel img {
-    width: 50%;           /* Ensures images fill the container */
-    max-width: 100%;       /* Keeps images within bounds */
+    width: 100%;           /* Ensures images fill the container */
+    max-width: calc(100% - 100px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
     border: 40px solid black; /* Adds 40px thick border */
-    filter: saturate(1.0); /* Increase saturation by 50% */
+    filter: saturate(1.5); /* Increase saturation by 50% */
 }
 
 /* Styling for carousel navigation arrows */
@@ -49,12 +49,12 @@ body {
 
 /* Left arrow position */
 .left-arrow {
-    left: -50px; /* Move the arrow outside of the carousel */
+    left: 10px; /* Move the arrow outside of the carousel */
 }
 
 /* Right arrow position */
 .right-arrow {
-    right: -50px; /* Move the arrow outside of the carousel */
+    right: 10px; /* Move the arrow outside of the carousel */
 }
 
 /* Scroll indicator styling */
