@@ -17,36 +17,24 @@ body {
 
 
 
-
-/* Carousel Container */
+/* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 600px; /* Set a fixed width (adjust as needed) */
-    height: 400px; /* Set a fixed height */
+    width: 20%; /* Reduced the width of the carousel */
     margin: auto;
-    overflow: hidden; /* Ensures images do not overflow */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding-top: 80px; /* Ensures it's not under the navbar */
 }
 
-/* Ensure images are properly sized */
-.carousel {
-    width: 100%; /* Fit inside container */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Styling for carousel images */
 .carousel img {
-    width: 100%; /* Make the images fit the carousel */
-    height: auto; /* Maintain aspect ratio */
-    border: 40px solid black; /* Thick border */
-    display: none; /* Initially hide all images */
+    width: 100%;           /* Ensures images fill the container */
+    max-width: 100%;       /* Keeps images within bounds */
+    height: auto;          /* Maintains aspect ratio */
+    display: none;         /* Initially hides images */
+    border: 40px solid black; /* Adds 40px thick border */
 }
 
-/* Position the arrows properly */
+/* Styling for carousel navigation arrows */
 .carousel-arrow {
     position: absolute;
     top: 50%;
@@ -54,40 +42,41 @@ body {
     font-size: 30px;
     color: #8cd3e2;
     text-decoration: none;
-    z-index: 2;
-    cursor: pointer;
+    z-index: 2; /* Ensures arrows stay above images */
 }
 
-/* Left arrow - Move outside */
+/* Left arrow position */
 .left-arrow {
-    left: -60px;
+    left: -50px; /* Move the arrow outside of the carousel */
 }
 
-/* Right arrow - Move outside */
+/* Right arrow position */
 .right-arrow {
-    right: -60px;
+    right: -50px; /* Move the arrow outside of the carousel */
 }
 
-/* Scroll Indicator */
+/* Scroll indicator styling */
 .scrollbar {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
-.scrollbar .dot {
-    width: 20px;
-    height: 5px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50px;
-    transition: background-color 0.3s;
+.scrollbar div {
+    width: 20px;          /* Size of the indicator dots */
+    height: 5px;          /* Height of the indicator */
+    margin: 0 5px;        /* Space between the indicators */
+    background-color: #bbb; /* Default color for inactive dots */
+    border-radius: 50px;   /* Rounded corners for the dots */
+    transition: background-color 0.3s; /* Smooth transition for color change */
 }
 
-/* Highlight active image */
+/* Active scrollbar dot styling */
 .scrollbar .active {
-    background-color: #8cd3e2;
+    background-color: #8cd3e2; /* Highlight active image */
 }
+
+
    
 
 
