@@ -136,7 +136,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-    width: 200px; /* Sidebar width */
+    width: 250px; /* Sidebar width */
     height: 100vh;
     background-color: black;
     display: flex;
@@ -153,7 +153,7 @@ body {
 }
 
 .sidebar img {
-    width: 180px; /* Nearly full width of the navbar */
+    width: 220px; /* Nearly full width of the navbar */
     height: auto;
     transition: transform 0.2s;
 }
@@ -166,7 +166,7 @@ body {
 /* Content area to prevent overlap */
 .content {
     margin-left: 220px; /* Adjusted for sidebar width */
-    padding: 30px;
+    padding: 60px;
 }
 
 /*nav bar ends here*/
