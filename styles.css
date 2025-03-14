@@ -29,8 +29,8 @@ body {
 
 /* Styling for carousel images */
 .carousel img {
-    width: 100%;           /* Ensures images fill the container */
-    max-width: calc(95% - 50px);       /* Keeps images within bounds */
+    width: 93%;           /* Ensures images fill the container */
+    max-width: calc(100% - 50px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
     border: 20px solid black; /* Adds 20px thick border */
