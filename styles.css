@@ -20,7 +20,8 @@ body {
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
-    width: 37.5%; /* Reduced the width of the carousel */
+    width: 50%; /* Reduced the width of the carousel */
+    max-width: 600px;
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
 }
@@ -55,6 +56,27 @@ body {
 /* Right arrow position */
 .right-arrow {
     right: 10px; /* Move the arrow outside of the carousel */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .carousel-container {
+        width: 80%; /* Adjust width for smaller screens */
+    }
+
+    .carousel-arrow {
+        font-size: 24px; /* Adjust arrow size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        width: 100%; /* Adjust width for very small screens */
+    }
+
+    .carousel-arrow {
+        font-size: 20px; /* Adjust arrow size for very small screens */
+    }
 }
 
 /* Scroll indicator styling */
