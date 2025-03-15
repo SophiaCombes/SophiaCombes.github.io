@@ -17,22 +17,25 @@ body {
 
 
 
+
+/* Container for the image gallery */
+.image-gallery-container {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 400px; /* Set a maximum height */
+    margin-left: 220px; /* Adjusted for sidebar width */
+    padding: 30px;
+}
+
 /* Only styles the image gallery, not the whole website */
 .image-gallery {
     display: flex;
     gap: 20px; /* Space between columns */
-    max-height: 400px; /* Controls height to trigger scrolling */
-    overflow: hidden;
 }
 
 .image-gallery .image-column {
-    width: 250px;
-    height: 100%;
-    overflow-y: auto;
+    width: calc(50% - 20px); /* Adjust width to fit two columns side by side */
     border: 3px solid #8cd3e2;
     padding: 10px;
-    scrollbar-width: thin;
-    scrollbar-color: #8cd3e2 #333;
 }
 
 .image-gallery .image-column img {
@@ -42,11 +45,11 @@ body {
 }
 
 /* Custom Scrollbar */
-.image-gallery .image-column::-webkit-scrollbar {
+.image-gallery-container::-webkit-scrollbar {
     width: 8px;
 }
 
-.image-gallery .image-column::-webkit-scrollbar-thumb {
+.image-gallery-container::-webkit-scrollbar-thumb {
     background-color: #8cd3e2;
     border-radius: 10px;
 }
