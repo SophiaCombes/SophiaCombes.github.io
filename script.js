@@ -44,3 +44,34 @@ rightArrow.addEventListener('click', (event) => {
 // Initially display the first image and activate its dot
 images[currentIndex].style.display = 'block';
 dots[currentIndex].classList.add('active');
+
+
+
+
+
+
+
+
+
+// Function to handle full-screen image functionality
+function setupFullscreenImage() {
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+
+    galleryImages.forEach(image => {
+        image.addEventListener('click', function() {
+            fullscreenImage.src = this.src;
+            fullscreenOverlay.style.display = 'flex';
+        });
+    });
+
+    fullscreenOverlay.addEventListener('click', function() {
+        fullscreenOverlay.style.display = 'none';
+    });
+}
+
+// Initialize full-screen image functionality after DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    setupFullscreenImage();
+});
