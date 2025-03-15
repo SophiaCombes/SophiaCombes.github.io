@@ -83,6 +83,21 @@ body {
 
 
 
+
+
+/* Center the 3d title image button */
+.centered-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Add some space below the button */
+}
+
+.centered-button img {
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* Container for the entire carousel */
 .carousel-container {
     position: relative;
