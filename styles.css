@@ -13,7 +13,7 @@ body {
 
 
 
-
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
 
@@ -77,6 +77,7 @@ body {
 
 
 
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
 
@@ -126,7 +127,6 @@ body {
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
     border: 20px solid black; /* Adds 20px thick border */
-    filter: saturate(1.7); /* Increase saturation by 50% */
 }
 
 /* Styling for carousel navigation arrows */
@@ -197,6 +197,7 @@ body {
    
 
 
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
 

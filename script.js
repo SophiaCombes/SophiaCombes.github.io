@@ -49,7 +49,7 @@ dots[currentIndex].classList.add('active');
 
 
 
-
+// -----------------------------------------------                      break                    ----------------------------------------------------
 
 
 
@@ -75,3 +75,16 @@ function setupFullscreenImage() {
 document.addEventListener('DOMContentLoaded', function() {
     setupFullscreenImage();
 });
+
+
+
+
+
+// -----------------------------------------------                      break                    ----------------------------------------------------
+
+
+
+
+
+
+
