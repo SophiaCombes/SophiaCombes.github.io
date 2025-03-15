@@ -4,10 +4,24 @@
   <title>SophiaCo</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0; /* Light background color */
+    }
+    canvas {
+      border: 1px solid black; /* Optional: Add a border to the canvas */
+    }
+  </style>
 </head>
-<body> style="margin: 0;">
+<body>
+
+  <!-- Canvas element for the drawing game -->
+  <canvas id="drawingCanvas" width="800" height="600"></canvas>
 
   <script src="./scriptdrawing.js"></script>
   <script src="./myLine.js"></script>

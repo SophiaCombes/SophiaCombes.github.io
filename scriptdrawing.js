@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const canvas = document.getElementById('drawingCanvas');
+    const context = canvas.getContext('2d');
+
+
+
+
+
+
 var lines = []
 var penColor
 var bgColor
@@ -43,3 +52,5 @@ function draw() {
         line.show()
     }
 }
+
+});
