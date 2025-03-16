@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Add P5 JS Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   
@@ -24,14 +25,78 @@
 </head>
 <body>
 
- <!-- Include the p5.js library -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-
   <!-- Canvas element for the drawing game -->
   <canvas id="drawingCanvas" width="800" height="600"></canvas>
 
-  <script src="./scriptdrawing.js"></script>
-  <script src="./myLine.js"></script>
+  <script>
+    var lines = []
+var penColor
+var bgColor
+var penWidth
+var clearBut
+
+function setup() {
+    createCanvas(400, 450);
+
+    var options = createDiv().style('display: flex')
+
+    var optionsTitles = createDiv().parent(options)
+    createP('Pen Color').parent(optionsTitles)
+    createP('Background Color').parent(optionsTitles)
+    createP('Pen Width').parent(optionsTitles)
+
+    var optionsValues = createDiv().parent(options).style('margin: 10px 40px; width: 50px')
+    penColor = createColorPicker('ffffff').parent(optionsValues)
+    bgColor = createColorPicker('#lelele').parent(optionsValues).style('margin-top: 10px')
+    penWidth = createSelect(false).parent(optionsValues).style('margin-top: 10px')
+    penWidth.option('1')
+    penWidth.option('2')
+    penWidth.option('4')
+    penWidth.option('8')
+    penWidth.selected('2')
+
+    clearBut = createButton('Clear').parent(options).style('width: 100px')
+}
+
+function draw() {
+    background(bgColor.value())
+
+    clearBut.mousePressed(function() {
+        lines = []
+    })
+
+    if (mouseIsPressed) {
+        var line = new MyLine(penColor.value(),penWidth.value())
+        lines.push(line)
+    }
+
+    for (var line of lines) {
+        line.show()
+    }
+}
+
+
+
+
+class MyLine {
+    constructor(penColor, penWidth) {
+        this.px = pwinMouseX
+        this.py = pwinMouseY
+        this.x = winMouseX
+        this.y = winMouseY
+
+        this.penColor = penColor
+        this.penWidth = penWidth
+    }
+    show() {
+        stroke(this.penColor)
+        strokeWeight(this.penWidth)
+        line(this.px, this.py, this.x, this.y)
+    }
+}
+</script>
+
+
   
 
 </body>
