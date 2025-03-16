@@ -18,15 +18,15 @@
       height: 100vh;
       background-color: #f0f0f0; /* Light background color */
     }
-    canvas {
+    #drawingCanvas {
       border: 1px solid black; /* Optional: Add a border to the canvas */
     }
   </style>
 </head>
 <body>
 
-  <!-- Canvas element for the drawing game -->
-  <canvas id="drawingCanvas" width="800" height="600"></canvas>
+  <!-- Container for the drawing game -->
+  <div id="drawingCanvas"></div>
 
   <script>
     var lines = []
@@ -36,9 +36,10 @@ var penWidth
 var clearBut
 
 function setup() {
-    createCanvas(400, 450);
+    const canvas = createCanvas(800, 600);
+    canvas.parent('drawingCanvas') // Attach the canvas to the div with id 'drawingCanvas'
 
-    var options = createDiv().style('display: flex')
+    var options = createDiv().style('display: flex').parent('drawingCanvas');
 
     var optionsTitles = createDiv().parent(options)
     createP('Pen Color').parent(optionsTitles)
