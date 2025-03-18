@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,26 +25,38 @@
   <div id="drawingCanvas"></div>
 
   <script>
-    var leafColorPicker;
+    let currentTreeType = 1;
 
     function setup() {
       const canvas = createCanvas(windowWidth, windowHeight);
       canvas.parent('drawingCanvas'); // Attach the canvas to the div with id 'drawingCanvas'
       angleMode(DEGREES);
-      noLoop();
-
-      // Create a color picker for the leaves
-      leafColorPicker = createColorPicker('#80c040');
-      leafColorPicker.position(10, 10); // Position it at the top-left corner
+      background(100); // Set the background color
     }
 
     function draw() {
-      background(100);
-      translate(width / 2, height / 2 + 200);
-      branch(100);
+      // No drawing code here, as we will draw the tree on mouse press
     }
 
-    function branch(len) {
+    function mousePressed() {
+      // Draw the tree at the mouse position when the mouse is pressed
+      translate(mouseX, mouseY);
+      if (currentTreeType === 1) {
+        branchType1(100);
+      } else if (currentTreeType === 2) {
+        branchType2(100);
+      }
+    }
+
+    function keyPressed() {
+      if (key === '1') {
+        currentTreeType = 1;
+      } else if (key === '2') {
+        currentTreeType = 2;
+      }
+    }
+
+    function branchType1(len) {
       push();
       if (len > 10) {
         strokeWeight(map(len, 10, 100, 1, 15));
@@ -53,12 +64,50 @@
         line(0, 0, 0, -len);
         translate(0, -len);
         rotate(random(-20, -30));
-        branch(len * random(0.7, 0.9));
+        branchType1(len * random(0.7, 0.9));
         rotate(random(50, 60));
-        branch(len * random(0.7, 0.9));
+        branchType1(len * random(0.7, 0.9));
       } else {
-        var leafColor = leafColorPicker.color();
-        fill(leafColor);
+        var r = 80 + random(-20, 20);
+        var g = 120 + random(-20, 20);
+        var b = 40 + random(-20, 20);
+        fill(r, g, b, 150);
+        noStroke();
+
+        beginShape();
+        for (var i = 135; i > 40; i--) {
+          var rad = 15;
+          var x = rad * cos(i);
+          var y = rad * sin(i);
+          vertex(x, y);
+        }
+        for (var i = 135; i > 40; i--) {
+          var rad = 15;
+          var x = rad * cos(i);
+          var y = rad * sin(-i) + 20;
+          vertex(x, y);
+        }
+        endShape(CLOSE);
+      }
+      pop();
+    }
+
+    function branchType2(len) {
+      push();
+      if (len > 10) {
+        strokeWeight(map(len, 10, 100, 1, 15));
+        stroke(40, 15, 10);
+        line(0, 0, 0, -len);
+        translate(0, -len);
+        rotate(random(-20, -30));
+        branchType2(len * random(0.7, 0.9));
+        rotate(random(50, 60));
+        branchType2(len * random(0.7, 0.9));
+      } else {
+        var r = 220 + random(-20, 20);
+        var g = 120 + random(-20, 20);
+        var b = 170 + random(-20, 20);
+        fill(r, g, b, 150);
         noStroke();
 
         beginShape();
