@@ -49,9 +49,9 @@
 
         var optionsValues = createDiv().parent(options).style('margin: 10px 40px; width: 80px');
         penColor = createColorPicker('#ffffff').parent(optionsValues);
+        penRandom = createCheckbox("", false).parent(optionsValues).style('display: inline').style('margin-top: 10px; width: 50px; height: 25px');
         bgColor = createColorPicker('#lelele').parent(optionsValues).style('margin-top: 10px');
         penWidth = createSelect(false).parent(optionsValues).style('margin-top: 10px');
-        penRandom = createCheckbox("", false).parent(optionsValues).style('display: inline').style('margin-top: 10px; width: 50px; height: 25px');
         penWidth.option('1');
         penWidth.option('2');
         penWidth.option('4');
