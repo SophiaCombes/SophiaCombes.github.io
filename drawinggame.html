@@ -21,143 +21,56 @@
 </head>
 <body>
 
-  <!-- Container for the drawing game -->
-  <div id="drawingCanvas"></div>
-
-  <script>
-    var lines = [];
-    var penColor;
-    var bgColor;
-    var penWidth;
-    var clearBut;
-    var penShape;
-    var penRandom;
-
     function setup() {
-        const canvas = createCanvas(800, 600);
-        canvas.parent('drawingCanvas'); // Attach the canvas to the div with id 'drawingCanvas'
-        angleMode(DEGREES);
-        noiseDetail(4);
-
-        var options = createDiv().style('display: flex').parent('drawingCanvas');
-
-        var optionsTitles = createDiv().parent(options);
-        createP('Pen Color').parent(optionsTitles);
-        createP('Background Color').parent(optionsTitles);
-        createP('Pen Width').parent(optionsTitles);
-        createP('Pen Shape').parent(optionsTitles);
-
-        var optionsValues = createDiv().parent(options).style('margin: 10px 40px; width: 80px');
-        penColor = createColorPicker('#ffffff').parent(optionsValues);
-        penRandom = createCheckbox("", false).parent(optionsValues).style('display: inline').style('margin-top: 10px; width: 50px; height: 25px');
-        bgColor = createColorPicker('#lelele').parent(optionsValues).style('margin-top: 10px');
-        penWidth = createSelect(false).parent(optionsValues).style('margin-top: 10px');
-        penWidth.option('1');
-        penWidth.option('2');
-        penWidth.option('4');
-        penWidth.option('8');
-        penWidth.option('16');
-        penWidth.option('32');
-        penWidth.selected('2');
-
-        penShape = createSelect(false).parent(optionsValues).style('margin-top: 10px; width: 50px; height: 25px');
-        penShape.option("Line");
-        penShape.option("Circle");
-        penShape.option("Rectangle");
-        penShape.option("Triangle");
-        penShape.option("Star");
-
-        clearBut = createButton('Clear').parent(options).style('width: 100px');
-    }
-
-    function draw() {
-        background(bgColor.value());
-
-        if (penRandom.checked()) {
-            var r = hex(floor(map(noise(frameCount / 100), 0, 1, 0, 255)), 2);
-            var g = hex(floor(map(noise(frameCount / 100 + 1000), 0, 1, 0, 255)), 2);
-            var b = hex(floor(map(noise(frameCount / 100 + 2000), 0, 1, 0, 255)), 2);
-
-            penColor.value("#" + r + g + b);
+        createCanvas(windowWidth, windowHeight)
+        angleMode(DEGREES)
+        
+        noLoop()
+      }
+      
+      function draw() {
+        background(100)
+        
+        translate(width / 2, height / 2 + 200)
+        
+        branch(100)
+      }
+      
+      function branch(len) {
+        push()
+        if (len > 10) {
+        strokeWeight(map(len, 10, 100, 1, 15))
+        stroke(70, 40, 20)
+        line(0, 0, 0, -len)
+        translate(0, -len)
+        rotate(random(-20, -30))
+        branch(len * random(0.7, 0.9))
+        rotate(random(50, 60))
+        branch(len * random(0.7, 0.9))
+        } else {
+          var r = 80 + random(-20, 20)
+          var g = 120 + random(-20, 20)
+          var b = 40 + random(-20, 20)
+          fill(r, g, b, 150)
+          noStroke()
+          
+          beginShape()
+          for (var i = 135; i > 40; i--) {
+            var rad = 15
+            var x = rad * cos(i)
+            var y = rad * sin(i)
+            vertex(x, y)
+          }
+            for (var i = 135; i > 40; i--) {
+            var rad = 15
+            var x = rad * cos(i)
+            var y = rad * sin(-i) + 20
+            vertex(x, y)
+          }
+          endShape(CLOSE)
         }
-
-        clearBut.mousePressed(function() {
-            lines = [];
-        });
-
-        if (mouseIsPressed) {
-            var line = new MyLine(penColor.value(), penWidth.value(), penShape.value());
-            lines.push(line);
-        }
-
-        for (var line of lines) {
-            line.show();
-        }
-    }
-
-    class MyLine {
-        constructor(penColor, penWidth, penShape) {
-            this.px = pmouseX;
-            this.py = pmouseY;
-            this.x = mouseX;
-            this.y = mouseY;
-
-            this.penColor = penColor;
-            this.penWidth = penWidth;
-            this.penShape = penShape;
-        }
-
-        show() {
-            if (this.penShape == "Line") {
-                stroke(this.penColor);
-                strokeWeight(this.penWidth);
-                line(this.px, this.py, this.x, this.y);
-            }
-            if (this.penShape === "Circle") {
-                fill(this.penColor);
-                noStroke();
-                ellipse(this.x, this.y, this.penWidth);
-            }
-            if (this.penShape === "Rectangle") {
-                fill(this.penColor);
-                noStroke();
-                rect(this.x, this.y, this.penWidth, this.penWidth);
-            }
-            if (this.penShape === "Triangle") {
-                fill(this.penColor);
-                noStroke();
-
-                push();
-                translate(this.x, this.y);
-                beginShape();
-                for (var i = 0; i < 360; i += 120) {
-                    var rad = this.penWidth / 2;
-                    var x = rad * cos(i);
-                    var y = rad * sin(i);
-                    vertex(x, y);
-                }
-                endShape(CLOSE);
-                pop();
-            }
-            if (this.penShape === "Star") {
-                fill(this.penColor);
-                noStroke();
-
-                push();
-                translate(this.x, this.y);
-                beginShape();
-                for (var i = 0; i < 720; i += 720 / 5) {
-                    var rad = this.penWidth / 2;
-                    var x = rad * cos(i);
-                    var y = rad * sin(i);
-                    vertex(x, y);
-                }
-                endShape(CLOSE);
-                pop();
-            }
-        }
-    }
-  </script>
+        pop()
+      }
 
 </body>
 </html>
