@@ -18,6 +18,58 @@ body {
 
 
 
+/* nav bar starts here */
+
+/* Style for the sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px; /* Sidebar width */
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+/* Style for the image buttons */
+.sidebar a {
+    margin: 15px 0; /* Slightly reduced margin to fit images better */
+    display: block;
+}
+
+.sidebar img {
+    width: 220px; /* Nearly full width of the navbar */
+    height: auto;
+    transition: transform 0.2s;
+}
+
+/* Hover effect */
+.sidebar img:hover {
+    transform: scale(1.05);
+}
+
+/* Content area to prevent overlap */
+.content {
+    margin-left: 220px; /* Adjusted for sidebar width */
+    padding: 60px;
+}
+
+/* Content area to prevent overlap with the navbar */
+.content {
+    margin-left: 250px; /* Matches the width of the sidebar */
+    padding: 20px; /* Optional: Add padding for spacing inside the content area */
+}
+
+/*nav bar ends here*/
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+
 /* Only styles the image gallery, not the whole website */
 .image-gallery {
     display: flex;
@@ -265,56 +317,145 @@ body {
    
 
 
-
-
-
-
-
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
 
-
-/* nav bar starts here */
-
-/* Style for the sidebar */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px; /* Sidebar width */
-    height: 100vh;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    z-index: 1000; /* Ensure sidebar is above other content */
+/* Glitch-specific styles */
+.container {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 10%;
 }
 
-/* Style for the image buttons */
-.sidebar a {
-    margin: 15px 0; /* Slightly reduced margin to fit images better */
+.image {
+    opacity: 1;
     display: block;
-}
-
-.sidebar img {
-    width: 220px; /* Nearly full width of the navbar */
+    width: 70%;
     height: auto;
-    transition: transform 0.2s;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
 }
 
-/* Hover effect */
-.sidebar img:hover {
-    transform: scale(1.05);
+.middle {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-/* Content area to prevent overlap */
-.content {
-    margin-left: 220px; /* Adjusted for sidebar width */
-    padding: 60px;
+.container:hover .image {
+    opacity: 0.3;
 }
 
-/*nav bar ends here*/
+.container:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    display: flex; /* Center the image inside the container */
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Remove background color */
+    padding: 0; /* Remove padding */
+}
+
+.text img {
+    max-width: 80%; /* Ensure the image scales properly */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+.image-row {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Add space between the images */
+    align-items: center; /* Align items vertically in the center */
+    gap: 5px; /* Optional: Add spacing between the images */
+}
+
+.title-image {
+    width: 25%; /* Set the width of the title image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.container {
+    width: 50%; /* Set the width of the second image container */
+}
+
+
 
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+/* Layout for the new images */
+.image-layout {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Space between the left and right sections */
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 20px; /* Add spacing above the layout */
+    padding-left: 250px; /* Ensure it doesn't overlap the navbar (adjust to match your navbar width) */
+    gap: 20px; /* Add spacing between the left and right sections */
+}
+
+.left-images {
+    display: flex;
+    position: relative;
+    right: 300px;
+    flex-direction: column; /* Stack the images vertically */
+    gap: 10px; /* Add spacing between the two images */
+}
+
+.left-image {
+    width: 90%; /* Set a fixed width for the left images */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.right-image img {
+    width: 90%; /* Set a fixed width for the right image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Ensure the left images are styled properly */
+.left-images .container {
+    position: relative;
+    width: 90%; /* Set a fixed width for the left images */
+}
+
+.left-images .left-image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+}
+
+.left-images .middle {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.left-images .container:hover .left-image {
+    opacity: 0.3; /* Dim the image on hover */
+}
+
+.left-images .container:hover .middle {
+    opacity: 1; /* Show the hover image */
+}
+
+.left-images .text img {
+    max-width: 150%; /* Ensure the hover image scales properly */
+    height: auto; /* Maintain aspect ratio */
+}
+
