@@ -130,6 +130,17 @@ body {
     width: 50%; /* Specific width for the Glitch carousel */
 }
 
+/* Third Carousel (Video) */
+.carousel-container.carousel-video {
+    width: 40%; /* Same width as the 3D carousel */
+    margin: auto;
+    padding-top: 80px; /* Ensures it's not under the navbar */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all elements horizontally */
+}
+
 /* Styling for carousel images */
 .carousel {
     display: flex;
@@ -163,7 +174,22 @@ body {
     border: 10px solid #8cd3e2; /* Specific border for Glitch carousel images */
 }
 
+/* Glitch Carousel Image Styling */
+.carousel-container.carousel-glitch .carousel img {
+    width: 100%; /* Ensures images fill the container */
+    max-width: calc(100% - 50px); /* Keeps images within bounds */
+    height: auto; /* Maintains aspect ratio */
+    display: none; /* Initially hides images */
+    border: 20px solid black; /* Matches the 3D carousel border */
+}
 
+.carousel-container.carousel-video .carousel img {
+    width: 100%; /* Ensures images fill the container */
+    max-width: calc(100% - 50px); /* Keeps images within bounds */
+    height: auto; /* Maintains aspect ratio */
+    display: none; /* Initially hides images */
+    border: 20px solid black; /* Adds a border for video carousel images */
+}
 
 /* Styling for carousel navigation arrows */
 .carousel-arrow {
@@ -204,6 +230,12 @@ body {
 
     .carousel-arrow {
         font-size: 20px; /* Adjust arrow size for very small screens */
+    }
+}
+@media (max-width: 768px) {
+    .carousel-container.carousel-glitch .carousel img {
+        width: 200px; /* Smaller width for smaller screens */
+        height: 150px; /* Smaller height for smaller screens */
     }
 }
 
@@ -285,3 +317,4 @@ body {
 
 /*nav bar ends here*/
 
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
