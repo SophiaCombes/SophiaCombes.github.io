@@ -1,4 +1,3 @@
-
 body {
     background-color: #181818; /* Dark background */
     color: white; /* White text for contrast */
@@ -100,8 +99,8 @@ body {
 }
 
 
-/* Container for the entire carousel */
-.carousel-container {
+/* First Carousel (3D) */
+.carousel-container.carousel-3d {
     position: relative;
     width: 40%; /* Set the width to 50% */
     margin: auto;
@@ -112,6 +111,24 @@ body {
     align-items: center; /* Center all elements horizontally */
 }
 
+.carousel-container.carousel-3d {
+    width: 40%; /* Specific width for the 3D carousel */
+}
+
+.carousel-container.carousel-glitch {
+    position: relative;
+    width: 40%; /* Set the width to 50% */
+    margin: auto;
+    padding-top: 80px; /* Ensures it's not under the navbar */
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all elements horizontally */
+}
+
+.carousel-container.carousel-glitch {
+    width: 50%; /* Specific width for the Glitch carousel */
+}
 
 /* Styling for carousel images */
 .carousel {
@@ -122,12 +139,28 @@ body {
     width: 100%; /* Ensure the carousel takes full width */
 }
 
-.carousel img {
+.carousel-container.carousel-3d .carousel img {
     width: 100%;           /* Ensures images fill the container */
     max-width: calc(100% - 50px);       /* Keeps images within bounds */
     height: auto;          /* Maintains aspect ratio */
     display: none;         /* Initially hides images */
     border: 20px solid black; /* Adds 20px thick border */
+}
+
+.carousel-container.carousel-3d .carousel img {
+    border: 20px solid black; /* Specific border for 3D carousel images */
+}
+
+.carousel-container.carousel-glitch .carousel img {
+    width: 100%;           /* Ensures images fill the container */
+    max-width: calc(100% - 50px);       /* Keeps images within bounds */
+    height: auto;          /* Maintains aspect ratio */
+    display: none;         /* Initially hides images */
+    border: 20px solid black; /* Adds 20px thick border */
+}
+
+.carousel-container.carousel-glitch .carousel img {
+    border: 10px solid #8cd3e2; /* Specific border for Glitch carousel images */
 }
 
 
