@@ -513,3 +513,12 @@ body {
     -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
+
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+
+.centered-image {
+    text-align: center;
+}
