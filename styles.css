@@ -531,3 +531,41 @@ body {
     width: 100%; 
     height: auto; 
 }
+
+.video2pfp {
+    width: 1120px; /* Set the width to 1120px */
+    height: 630px; /* Set the height to 630px */
+    object-fit: cover; /* Ensure the image scales properly */
+    display: block; /* Ensure the image behaves like a block element */
+    margin: 20px auto; /* Center the image horizontally and add spacing */
+    position: relative; /* Ensure it respects the layout flow */
+    left: 300px; /* Offset the image slightly to account for the navbar width */
+}
+
+/* Container for the video2pfp image and hover text */
+.video2pfp-container {
+    position: relative; /* Position relative to contain the hover text */
+    display: inline-block; /* Ensure the container wraps around the image */
+}
+
+/* Style for the hover text */
+.video2pfp-container .hover-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 75%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    color: white; /* Text color */
+    font-size: 24px; /* Font size for the text */
+    font-weight: bold; /* Make the text bold */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px 20px; /* Add padding around the text */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+    pointer-events: none; /* Prevent the text from interfering with clicks */
+}
+
+/* Show the hover text when hovering over the container */
+.video2pfp-container:hover .hover-text {
+    opacity: 1; /* Make the text visible */
+}
