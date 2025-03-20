@@ -540,6 +540,7 @@ body {
     margin: 20px auto; /* Center the image horizontally and add spacing */
     position: relative; /* Ensure it respects the layout flow */
     left: 300px; /* Offset the image slightly to account for the navbar width */
+    border: #8cd3e2 10px solid; /* Add a border around the image */
 }
 
 /* Container for the video2pfp image and hover text */
