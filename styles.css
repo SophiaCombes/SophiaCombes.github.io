@@ -521,4 +521,13 @@ body {
 
 .centered-image {
     text-align: center;
+    margin: 20px auto; /* Center the image with auto margins */
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: auto; 
 }
