@@ -184,6 +184,7 @@ body {
 
 /* Third Carousel (Video) */
 .carousel-container.carousel-video {
+    position: relative; /* Ensure arrows are positioned relative to the container */
     width: 40%; /* Same width as the 3D carousel */
     margin: auto;
     padding-top: 80px; /* Ensures it's not under the navbar */
