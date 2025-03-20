@@ -325,7 +325,7 @@ body {
 .container {
     position: absolute;
     top: 5%;
-    left: 50%;
+    left: 5%;
     width: 10%;
 }
 
@@ -362,20 +362,52 @@ body {
     justify-content: center;
     align-items: center;
     background-color: transparent; /* Remove background color */
-    padding: 0; /* Remove padding */
+}
+
+
+/* Style for the image container */
+.container {
+    position: relative;
+    width: 50%; /* Set a fixed width for the image */
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container:hover .image {
+    opacity: 0.3; /* Dim the image on hover */
+}
+
+.container:hover .middle {
+    opacity: 1; /* Show the hover image */
 }
 
 .text img {
-    max-width: 80%; /* Ensure the image scales properly */
+    max-width: 150%; /* Ensure the hover image scales properly */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: Add rounded corners */
 }
 
 .image-row {
     display: flex; /* Use flexbox to align items horizontally */
-    justify-content: space-between; /* Add space between the images */
     align-items: center; /* Align items vertically in the center */
-    gap: 5px; /* Optional: Add spacing between the images */
+    gap: 0px; /* Optional: Add spacing between the images */
 }
 
 .title-image {
@@ -383,12 +415,20 @@ body {
     height: auto; /* Maintain aspect ratio */
 }
 
-.container {
-    width: 50%; /* Set the width of the second image container */
+/* Textbox styling */
+.textbox {
+    margin-top: 20px; /* Add spacing above the textbox */
+    padding: 15px; /* Add padding inside the textbox */
+    border: 2px solid white; /* White border around the textbox */
+    background-color: rgba(0, 0, 0, 0); /* Background color for the textbox */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size for the text */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    width: 500px; /* Set the width of the textbox */
+    margin-left: 0px; /* Center the textbox horizontally */
+    margin-right: 0px; /* Center the textbox horizontally */
+    text-align: left; /* Left the text inside the textbox */
 }
-
-
-
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
@@ -405,14 +445,9 @@ body {
 .left-images {
     display: flex;
     position: relative;
-    right: 300px;
+    right: 00px;
     flex-direction: column; /* Stack the images vertically */
     gap: 10px; /* Add spacing between the two images */
-}
-
-.left-image {
-    width: 90%; /* Set a fixed width for the left images */
-    height: auto; /* Maintain aspect ratio */
 }
 
 .right-image img {
@@ -423,7 +458,7 @@ body {
 /* Ensure the left images are styled properly */
 .left-images .container {
     position: relative;
-    width: 90%; /* Set a fixed width for the left images */
+    width: 85%; /* Set a fixed width for the left images */
 }
 
 .left-images .left-image {
@@ -459,3 +494,22 @@ body {
     height: auto; /* Maintain aspect ratio */
 }
 
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
