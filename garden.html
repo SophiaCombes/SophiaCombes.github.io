@@ -12,9 +12,14 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f0f0; /* Light background color */
+      background: #ffffff; /* Optional: Set a plain background for the body */
     }
+
     #drawingCanvas {
+      width: 100%; /* Make the canvas fill the available width */
+      height: 100%; /* Make the canvas fill the available height */
+      background: url('images/code-images/gardenbg.PNG') no-repeat center center; /* Set the background image */
+      background-size: cover; /* Ensure the image covers the entire canvas */
       border: 1px solid black; /* Optional: Add a border to the canvas */
     }
   </style>
@@ -31,7 +36,7 @@
       const canvas = createCanvas(windowWidth, windowHeight);
       canvas.parent('drawingCanvas'); // Attach the canvas to the div with id 'drawingCanvas'
       angleMode(DEGREES);
-      background(100); // Set the background color
+      
     }
 
     function draw() {
@@ -60,7 +65,7 @@
       push();
       if (len > 10) {
         strokeWeight(map(len, 10, 100, 1, 15));
-        stroke(70, 40, 20);
+        stroke(100, 60, 35);
         line(0, 0, 0, -len);
         translate(0, -len);
         rotate(random(-20, -30));
@@ -68,9 +73,9 @@
         rotate(random(50, 60));
         branchType1(len * random(0.7, 0.9));
       } else {
-        var r = 80 + random(-20, 20);
-        var g = 120 + random(-20, 20);
-        var b = 40 + random(-20, 20);
+        var r = 130 + random(-30, 30);
+        var g = 170 + random(-30, 30);
+        var b = 45 + random(-30, 30);
         fill(r, g, b, 150);
         noStroke();
 
