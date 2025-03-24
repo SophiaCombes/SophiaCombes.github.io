@@ -571,3 +571,17 @@ body {
 .video2pfp-container:hover .hover-text {
     opacity: 1; /* Make the text visible */
 }
+
+
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+
+
+.three-d-image {
+    display: block; /* Ensure the image behaves like a block element */
+    margin-left: 250px; /* Add margin to the left to account for the navbar width */
+    max-width: calc(100% - 250px); /* Ensure the image scales properly and doesn't overflow */
+    height: auto; /* Maintain aspect ratio */
+}
