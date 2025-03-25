@@ -44,27 +44,22 @@ document.querySelectorAll('.carousel-container').forEach((carouselContainer) => 
     dots[currentIndex].classList.add('active');
 });
 
-// Function to handle full-screen image functionality
-function setupFullscreenImage() {
-    const galleryImages = document.querySelectorAll('.gallery-image');
-    const fullscreenOverlay = document.getElementById('fullscreenOverlay');
-    const fullscreenImage = document.getElementById('fullscreenImage');
+// Get the fullscreen overlay and image elements
+const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+const fullscreenImage = document.getElementById('fullscreenImage');
 
-    galleryImages.forEach(image => {
-        image.addEventListener('click', function() {
-            fullscreenImage.src = this.src;
-            fullscreenOverlay.style.display = 'flex';
-        });
-    });
+// Add click event listeners to all gallery images
+const galleryImages = document.querySelectorAll('.gallery-image');
+galleryImages.forEach(image => {
+  image.addEventListener('click', () => {
+    fullscreenImage.src = image.src; // Set the clicked image as the fullscreen image
+    fullscreenOverlay.style.display = 'flex'; // Show the overlay
+  });
+});
 
-    fullscreenOverlay.addEventListener('click', function() {
-        fullscreenOverlay.style.display = 'none';
-    });
-}
-
-// Initialize full-screen image functionality after DOM content is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    setupFullscreenImage();
+// Add click event listener to the overlay to close it
+fullscreenOverlay.addEventListener('click', () => {
+  fullscreenOverlay.style.display = 'none'; // Hide the overlay
 });
 
 
