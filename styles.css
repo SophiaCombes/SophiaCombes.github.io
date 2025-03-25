@@ -11,14 +11,7 @@ body {
     height: auto;  /* Maintain aspect ratio */
 }
 
-/* Specific styles for the game.html page */
-body {
-    background-image: url('images/code-images/garden-infobg.png'); /* Set the background image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-attachment: fixed; /* Keep the background fixed while scrolling */
-    background-size: cover; /* Ensure the image covers the entire viewport */
-    background-color: transparent; /* Make sure no background color hides the image */
-}
+
 
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
