@@ -625,3 +625,45 @@ body {
     max-width: calc(100% - 250px); /* Ensure the image scales properly and doesn't overflow */
     height: auto; /* Maintain aspect ratio */
 }
+
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+/* Center the game buttons container */
+.game-buttons-container {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    justify-content: center; /* Center rows vertically */
+    align-items: center; /* Center rows horizontally */
+    height: 35vh; /* Ensure the container takes up the full viewport height */
+}
+
+/* Style for each row of buttons */
+.game-row {
+    display: flex; /* Align buttons horizontally within the row */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 20px; /* Add spacing between buttons */
+    margin-bottom: 20px; /* Add spacing between rows */
+}
+
+/* Style for the buttons */
+.game-row img {
+    width: auto; /* Maintain the original aspect ratio */
+    height: 120px; /* Set a consistent height for the buttons */
+    cursor: pointer; /* Change the cursor to indicate the buttons are clickable */
+}
+
+/* Hover effect */
+.game-row img:hover {
+    transform: scale(1.05);
+}
+
+
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+
+
+

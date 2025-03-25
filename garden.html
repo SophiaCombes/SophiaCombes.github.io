@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SophiaCo</title>
+  <link rel="icon" href="images/nav-images/favicon.gif" type="image/gif">
+
   <!-- Add P5 JS Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   <style>
@@ -18,7 +22,7 @@
     #drawingCanvas {
       width: 100%; /* Make the canvas fill the available width */
       height: 100%; /* Make the canvas fill the available height */
-      background: url('images/code-images/gardenbg1.png') no-repeat center center; /* Set the background image */
+      background: url('images/code-images/springbg.png') no-repeat center center; /* Set the background image */
       background-size: cover; /* Ensure the image covers the entire canvas */
       border: 1px solid black; /* Optional: Add a border to the canvas */
     }
@@ -109,9 +113,9 @@
         rotate(random(50, 60));
         branchType2(len * random(0.7, 0.9));
       } else {
-        var r = 220 + random(-20, 20);
-        var g = 120 + random(-20, 20);
-        var b = 170 + random(-20, 20);
+        var r = 240 + random(-20, 20);
+        var g = 180 + random(-20, 20);
+        var b = 210 + random(-20, 20);
         fill(r, g, b, 150);
         noStroke();
 
