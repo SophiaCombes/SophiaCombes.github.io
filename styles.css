@@ -630,8 +630,8 @@ body {
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
-/* Center the game buttons container */
-.game-buttons-container {
+/* Center the game buttons container for game.html */
+.game-page .game-buttons-container {
     display: flex;
     flex-direction: column; /* Stack rows vertically */
     justify-content: center; /* Center rows vertically */
@@ -640,7 +640,7 @@ body {
 }
 
 /* Style for each row of buttons */
-.game-row {
+.game-page .game-row {
     display: flex; /* Align buttons horizontally within the row */
     justify-content: center; /* Center buttons horizontally */
     gap: 20px; /* Add spacing between buttons */
@@ -648,14 +648,14 @@ body {
 }
 
 /* Style for the buttons */
-.game-row img {
+.game-page .game-row img {
     width: auto; /* Maintain the original aspect ratio */
     height: 120px; /* Set a consistent height for the buttons */
     cursor: pointer; /* Change the cursor to indicate the buttons are clickable */
 }
 
 /* Hover effect */
-.game-row img:hover {
+.game-page .game-row img:hover {
     transform: scale(1.05);
 }
 
