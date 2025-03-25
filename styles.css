@@ -182,7 +182,7 @@ body {
 .centered-button {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Add some space below the button */
+    margin-bottom: 10px; /* Add some space below the button */
 }
 
 .centered-button img {
@@ -196,7 +196,7 @@ body {
     position: relative;
     width: 40%; /* Set the width to 50% */
     margin: auto;
-    padding-top: 80px; /* Ensures it's not under the navbar */
+    padding-top: 10px; /* Ensures it's not under the navbar */
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -211,7 +211,7 @@ body {
     position: relative;
     width: 40%; /* Set the width to 50% */
     margin: auto;
-    padding-top: 80px; /* Ensures it's not under the navbar */
+    padding-top: 10px; /* Ensures it's not under the navbar */
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -227,7 +227,7 @@ body {
     position: relative; /* Ensure arrows are positioned relative to the container */
     width: 40%; /* Same width as the 3D carousel */
     margin: auto;
-    padding-top: 80px; /* Ensures it's not under the navbar */
+    padding-top: 10px; /* Ensures it's not under the navbar */
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -665,5 +665,24 @@ body {
 
 
 
+/* Center the artist statement container */
+.artist-statement-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-left: 250px; /* Offset to account for the navbar width */
+    height: 70vh; /* Make the container take up the full viewport height */
+    box-sizing: border-box; /* Include padding and margin in the element's dimensions */
+}
+
+/* Style for the artist statement image */
+.artist-statement {
+    max-width: calc(90% - 250px); /* Ensure the image fits within the remaining space */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
