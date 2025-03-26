@@ -1,6 +1,11 @@
 var balls = []
 
 function setup() {
+    bgGif = createImg('images/code-images/rainbowbg.gif'); 
+    bgGif.position(0, 0); 
+    bgGif.size(windowWidth, windowHeight); 
+    bgGif.style('z-index', '-1');
+
     createCanvas(windowWidth, windowHeight);
 
     for (let i = 0; i < 10; i++) {
@@ -10,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-    background(30)
+    background(30, 30, 30, 7); 
 
     for (var i = 0; i < balls.length; i++) {
         balls[i].collide()
