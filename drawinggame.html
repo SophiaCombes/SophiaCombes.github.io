@@ -51,7 +51,7 @@ function mousePressed() {
 class Ball {
     constructor(index) {
         this.index = index;
-        this.radius = 50;
+        this.radius = 20;
         this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
         this.vel = p5.Vector.random2D().mult(2);
         this.color = color(255); 
@@ -99,7 +99,7 @@ class Ball {
 }
 
 </script>
- <!-- <script src="scriptdrawing.js"></script> -->
+
 </body>
 
 </html>
