@@ -82,21 +82,7 @@
         var b = 45 + random(-30, 30);
         fill(r, g, b, 150);
         noStroke();
-
-        beginShape();
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(i);
-          vertex(x, y);
-        }
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(-i) + 20;
-          vertex(x, y);
-        }
-        endShape(CLOSE);
+        ellipse(0, 0, 20, 20);
       }
       pop();
     }
@@ -118,21 +104,7 @@
         var b = 170 + random(-20, 20);
         fill(r, g, b, 150);
         noStroke();
-
-        beginShape();
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(i);
-          vertex(x, y);
-        }
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(-i) + 20;
-          vertex(x, y);
-        }
-        endShape(CLOSE);
+        ellipse(0, 0, 20, 20);
       }
       pop();
     }
