@@ -626,6 +626,10 @@ body {
     height: auto; /* Maintain aspect ratio */
 }
 
+/* Reduce space between the two elements */
+div a img.three-d-image {
+    margin-bottom: 10px; /* Reduce the bottom margin of the image */
+}
 
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
@@ -686,3 +690,28 @@ body {
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
 
+/* Center the code container */
+.code-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    margin-left: 250px; /* Offset to account for the navbar width */
+    box-sizing: border-box; /* Include padding and margin in the element's dimensions */
+    margin-top: 10px; /* Reduce the top margin of the code container */
+}
+
+/* Style for the code box */
+.code-box {
+    border: ridge 8px;
+    background-color: #181818;
+    text-align: center;
+    overflow-y: auto;
+    height: 380px;
+    padding: 20px; /* Add padding for better spacing */
+    max-width: 1000px; /* Optional: Limit the width of the box */
+    color: white; /* Ensure text is visible on dark background */
+    margin-top: -400px;
+}
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
