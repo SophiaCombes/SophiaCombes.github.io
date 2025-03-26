@@ -1,56 +1,76 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const canvas = document.getElementById('drawingCanvas');
-    const context = canvas.getContext('2d');
-
-
-
-
-
-
-var lines = []
-var penColor
-var bgColor
-var penWidth
-var clearBut
+var balls = []
 
 function setup() {
-    createCanvas(400, 450);
+    createCanvas(windowWidth, windowHeight);
 
-    var options = createDiv().style('display: flex')
-
-    var optionsTitles = createDiv().parent(options)
-    createP('Pen Color').parent(optionsTitles)
-    createP('Background Color').parent(optionsTitles)
-    createP('Pen Width').parent(optionsTitles)
-
-    var optionsValues = createDiv().parent(options).style('margin: 10px 40px; width: 50px')
-    penColor = createColorPicker('ffffff').parent(optionsValues)
-    bgColor = createColorPicker('#lelele').parent(optionsValues).style('margin-top: 10px')
-    penWidth = createSelect(false).parent(optionsValues).style('margin-top: 10px')
-    penWidth.option('1')
-    penWidth.option('2')
-    penWidth.option('4')
-    penWidth.option('8')
-    penWidth.selected('2')
-
-    clearBut = createButton('Clear').parent(options).style('width: 100px')
+    for (let i = 0; i < 10; i++) {
+        var b = new Ball(i)
+        balls.push(b)
+    }
 }
 
 function draw() {
-    background(bgColor.value())
+    background(30)
 
-    clearBut.mousePressed(function() {
-        lines = []
-    })
-
-    if (mouseIsPressed) {
-        var line = new MyLine(penColor.value(),penWidth.value())
-        lines.push(line)
-    }
-
-    for (var line of lines) {
-        line.show()
-    }
+    for (var i = 0; i < balls.length; i++) {
+        balls[i].collide()
+        balls[i].edges()
+        balls[i].move()
+        balls[i].show()
+    }   
 }
 
-});
+function mousePressed() {
+    var newBall = new Ball(balls.length); 
+    balls.push(newBall); 
+}
+
+class Ball {
+    constructor(index) {
+        this.index = index;
+        this.radius = 50;
+        this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));
+        this.vel = p5.Vector.random2D().mult(2);
+        this.color = color(255); 
+        this.lastCollisionTime = 0; 
+    }
+
+    collide() {
+        for (var i = 0; i < balls.length; i++) {
+            if (this.index !== i) {
+                var d = dist(this.pos.x, this.pos.y, balls[i].pos.x, balls[i].pos.y);
+
+               
+                if (d < this.radius + balls[i].radius) {
+                    let currentTime = millis(); 
+
+                   
+                    if (currentTime - this.lastCollisionTime > 200) { 
+                        this.color = color(random(255), random(255), random(255));
+                        this.lastCollisionTime = currentTime; 
+                    }
+                    return; 
+                }
+            }
+        }
+    }
+
+    edges() {
+        if (this.pos.x < this.radius || this.pos.x > width - this.radius) {
+            this.vel.x *= -1;
+        }
+        if (this.pos.y < this.radius || this.pos.y > height - this.radius) {
+            this.vel.y *= -1;
+        }
+    }
+
+    move() {
+        this.pos.add(this.vel);
+    }
+
+    show() {
+        noStroke();
+        fill(this.color);
+        ellipse(this.pos.x, this.pos.y, this.radius * 2);
+    }
+}

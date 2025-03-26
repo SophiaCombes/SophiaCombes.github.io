@@ -3,77 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Add P5 JS Library -->
+
+  <title>SophiaCo</title>
+  <link rel="icon" href="images/nav-images/favicon.gif" type="image/gif">
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+
   <style>
-    body {
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0; /* Light background color */
-    }
-    #drawingCanvas {
-      border: 1px solid black; /* Optional: Add a border to the canvas */
-    }
+ 
   </style>
 </head>
 <body>
 
-  <!-- Container for the drawing game -->
   <div id="drawingCanvas"></div>
 
-  <script>
-    function setup() {
-      const canvas = createCanvas(windowWidth, windowHeight);
-      canvas.parent('drawingCanvas'); // Attach the canvas to the div with id 'drawingCanvas'
-      angleMode(DEGREES);
-      noLoop();
-    }
 
-    function draw() {
-      background(100);
-      translate(width / 2, height / 2 + 200);
-      branch(100);
-    }
-
-    function branch(len) {
-      push();
-      if (len > 10) {
-        strokeWeight(map(len, 10, 100, 1, 15));
-        stroke(70, 40, 20);
-        line(0, 0, 0, -len);
-        translate(0, -len);
-        rotate(random(-20, -30));
-        branch(len * random(0.7, 0.9));
-        rotate(random(50, 60));
-        branch(len * random(0.7, 0.9));
-      } else {
-        var r = 80 + random(-20, 20);
-        var g = 120 + random(-20, 20);
-        var b = 40 + random(-20, 20);
-        fill(r, g, b, 150);
-        noStroke();
-
-        beginShape();
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(i);
-          vertex(x, y);
-        }
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(-i) + 20;
-          vertex(x, y);
-        }
-        endShape(CLOSE);
-      }
-      pop();
-    }
-  </script>
-
+  <script src="scriptdrawing.js"></script>
 </body>
 </html>
