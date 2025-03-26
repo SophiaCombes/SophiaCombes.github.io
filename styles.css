@@ -704,14 +704,31 @@ div a img.three-d-image {
 /* Style for the code box */
 .code-box {
     border: ridge 8px;
-    background-color: #181818;
+    background-color: rgba(0, 0, 0, 0);
     text-align: center;
     overflow-y: auto;
     height: 380px;
     padding: 20px; /* Add padding for better spacing */
-    max-width: 1000px; /* Optional: Limit the width of the box */
+    width: 1000px; /* Optional: Limit the width of the box */
     color: white; /* Ensure text is visible on dark background */
     margin-top: -400px;
 }
 
+
+
+
+/* Style for the code header container */
+.code-header {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: center; /* Center the content horizontally */
+    gap: 20px; /* Add spacing between the elements */
+    margin: 20px 0; /* Add some vertical margin */
+}
+
+/* Style for the bubble images */
+.bubble {
+    height: 50px; /* Set the height of the bubbles */
+    width: auto; /* Maintain aspect ratio */
+}
 /* ---------------------------------------------------               break               ----------------------------------------------------- */

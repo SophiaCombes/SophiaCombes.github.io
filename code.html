@@ -38,24 +38,281 @@
     </div>
 
 
-
+    <!-- -----------------------------------------------------------            break         --------------------------------------------------------------------- -->
 
 
  
     <div class="code-container">
         <div class="code-box">
-            <h1> C O D E </h1>
+            <div class="code-header">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1d9059de-ffc4-4479-9fcf-03972a53ab72/dacxj7e-a1ea4e28-6af6-4389-9a95-334976ee3040.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkOTA1OWRlLWZmYzQtNDQ3OS05ZmNmLTAzOTcyYTUzYWI3MlwvZGFjeGo3ZS1hMWVhNGUyOC02YWY2LTQzODktOWE5NS0zMzQ5NzZlZTMwNDAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1-JNNB_5Mz7pG0om70bRMXPYOaHHjaew6XOR3tQtJ0o" 
+                    alt="bubble1" class="bubble">
+                <h1>C O D E</h1>
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1d9059de-ffc4-4479-9fcf-03972a53ab72/dacxj77-e12415a6-ab9a-45fc-8d3f-497fe1516a38.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkOTA1OWRlLWZmYzQtNDQ3OS05ZmNmLTAzOTcyYTUzYWI3MlwvZGFjeGo3Ny1lMTI0MTVhNi1hYjlhLTQ1ZmMtOGQzZi00OTdmZTE1MTZhMzguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.REXVOgppOWOsPjFRZGSXgOyLBSU8XqO701rpKP7rWpI" 
+                    alt="bubble2" class="bubble">
+            </div>
+
+            <img style="height: 20px; width:400px;" src="https://dividers.crd.co/assets/images/gallery04/1ea51caf.png?v=05d33f91">
+            <p>
+                &lt;!DOCTYPE html&gt;<br>
+                &lt;html lang="en"&gt;<br>
+                &lt;head&gt;<br>
+                  &lt;meta charset="UTF-8"&gt;<br>
+                  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;<br>
+                  &lt;title&gt;SophiaCo&lt;/title&gt;<br>
+                  &lt;link rel="icon" href="images/nav-images/favicon.gif" type="image/gif"&gt;<br>
+                  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;<br>
+                &lt;/head&gt;<br>
+                &lt;body&gt;<br>
+                  &lt;div id="drawingCanvas"&gt;&lt;/div&gt;<br>
+                  &lt;script&gt;<br>
+                    var balls = [];<br>
+                    function setup() {<br>
+                      bgGif = createImg('images/code-images/rainbowbg.gif');<br>
+                      bgGif.position(0, 0);<br>
+                      bgGif.size(windowWidth, windowHeight);<br>
+                      bgGif.style('z-index', '-1');<br>
+                      createCanvas(windowWidth, windowHeight);<br>
+                      for (let i = 0; i &lt; 10; i++) {<br>
+                        var b = new Ball(i);<br>
+                        balls.push(b);<br>
+                      }<br>
+                    }<br>
+                    function draw() {<br>
+                      background(0, 0, 0, 1);<br>
+                      for (var i = 0; i &lt; balls.length; i++) {<br>
+                        balls[i].collide();<br>
+                        balls[i].edges();<br>
+                        balls[i].move();<br>
+                        balls[i].show();<br>
+                      }<br>
+                    }<br>
+                    function mousePressed() {<br>
+                      var newBall = new Ball(balls.length);<br>
+                      balls.push(newBall);<br>
+                    }<br>
+                    class Ball {<br>
+                      constructor(index) {<br>
+                        this.index = index;<br>
+                        this.radius = 20;<br>
+                        this.pos = createVector(random(this.radius, width - this.radius), random(this.radius, height - this.radius));<br>
+                        this.vel = p5.Vector.random2D().mult(2);<br>
+                        this.color = color(255);<br>
+                        this.lastCollisionTime = 0;<br>
+                      }<br>
+                      collide() {<br>
+                        for (var i = 0; i &lt; balls.length; i++) {<br>
+                          if (this.index !== i) {<br>
+                            var d = dist(this.pos.x, this.pos.y, balls[i].pos.x, balls[i].pos.y);<br>
+                            if (d &lt; this.radius + balls[i].radius) {<br>
+                              let currentTime = millis();<br>
+                              if (currentTime - this.lastCollisionTime &gt; 200) {<br>
+                                this.color = color(random(255), random(255), random(255));<br>
+                                this.lastCollisionTime = currentTime;<br>
+                              }<br>
+                              return;<br>
+                            }<br>
+                          }<br>
+                        }<br>
+                      }<br>
+                      edges() {<br>
+                        if (this.pos.x &lt; this.radius || this.pos.x &gt; width - this.radius) {<br>
+                          this.vel.x *= -1;<br>
+                        }<br>
+                        if (this.pos.y &lt; this.radius || this.pos.y &gt; height - this.radius) {<br>
+                          this.vel.y *= -1;<br>
+                        }<br>
+                      }<br>
+                      move() {<br>
+                        this.pos.add(this.vel);<br>
+                      }<br>
+                      show() {<br>
+                        noStroke();<br>
+                        fill(this.color);<br>
+                        ellipse(this.pos.x, this.pos.y, this.radius * 2);<br>
+                      }<br>
+                    }<br>
+                  &lt;/script&gt;<br>
+                &lt;/body&gt;<br>
+                &lt;/html&gt;
+                </p>       
+        </div>
+    </div>
+
+
+    <!-- -----------------------------------------------------------            break         --------------------------------------------------------------------- -->
+
+
+
+
+
+    <!-- -----------------------------------------------------------            break         --------------------------------------------------------------------- -->
+
+
+
+    <div class="code-container">
+        <div class="code-box">
+            <div class="code-header">
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1d9059de-ffc4-4479-9fcf-03972a53ab72/dacxj7e-a1ea4e28-6af6-4389-9a95-334976ee3040.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkOTA1OWRlLWZmYzQtNDQ3OS05ZmNmLTAzOTcyYTUzYWI3MlwvZGFjeGo3ZS1hMWVhNGUyOC02YWY2LTQzODktOWE5NS0zMzQ5NzZlZTMwNDAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.1-JNNB_5Mz7pG0om70bRMXPYOaHHjaew6XOR3tQtJ0o" 
+                    alt="bubble1" class="bubble">
+                <h1>C O D E</h1>
+                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1d9059de-ffc4-4479-9fcf-03972a53ab72/dacxj77-e12415a6-ab9a-45fc-8d3f-497fe1516a38.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzFkOTA1OWRlLWZmYzQtNDQ3OS05ZmNmLTAzOTcyYTUzYWI3MlwvZGFjeGo3Ny1lMTI0MTVhNi1hYjlhLTQ1ZmMtOGQzZi00OTdmZTE1MTZhMzguZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.REXVOgppOWOsPjFRZGSXgOyLBSU8XqO701rpKP7rWpI" 
+                    alt="bubble2" class="bubble">
+            </div>
+
+
             <img style="height: 20px; width:400px" src="https://dividers.crd.co/assets/images/gallery04/1ea51caf.png?v=05d33f91">
-            <p>INFO HERE Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin elit sed tellus blandit viverra sed eget odio. Donec accumsan tempor lacus, et venenatis elit feugiat non. </p>
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/64954019_bA4fsYB8qzmeepr.gif" height="350" width="126" style=" z-index: -1; position: absolute; margin-top: -200px; margin-left: -630px;">
-            <img src="https://f2.toyhou.se/file/f2-toyhou-se/images/64954019_bA4fsYB8qzmeepr.gif" height="350" width="126" style=" z-index: -1; position: absolute; margin-top: -200px; margin-left: 510px;">
-        
+            <p>
+                &lt;!DOCTYPE html&gt;<br>
+                &lt;html lang="en"&gt;<br>
+                &lt;head&gt;<br>
+                  &lt;meta charset="UTF-8"&gt;<br>
+                  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;<br>
+                  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"&gt;&lt;/script&gt;<br>
+                  &lt;style&gt;<br>
+                    body {<br>
+                      margin: 0;<br>
+                      display: flex;<br>
+                      justify-content: center;<br>
+                      align-items: center;<br>
+                      height: 100vh;<br>
+                      background-image: url('images/code-images/starbg.gif');<br>
+                      background-size: cover;<br>
+                      background-repeat: no-repeat;<br>
+                    }<br>
+                    #drawingCanvas {<br>
+                      border: 1px solid white;<br>
+                    }<br>
+                  &lt;/style&gt;<br>
+                &lt;/head&gt;<br>
+                &lt;body&gt;<br>
+                  &lt;div id="drawingCanvas"&gt;&lt;/div&gt;<br>
+                  &lt;script&gt;<br>
+                    var lines = [];<br>
+                    var penColor;<br>
+                    var bgColor;<br>
+                    var penWidth;<br>
+                    var clearBut;<br>
+                    var penShape;<br>
+                    var penRandom;<br>
+                    function setup() {<br>
+                        const canvas = createCanvas(800, 600);<br>
+                        canvas.parent('drawingCanvas');<br>
+                        angleMode(DEGREES);<br>
+                        noiseDetail(4);<br>
+                        var options = createDiv().style('display: flex').parent('drawingCanvas');<br>
+                        var optionsTitles = createDiv().parent(options);<br>
+                        createP('Pen Color').parent(optionsTitles).style('color', 'white');<br>
+                        createP('Background Color').parent(optionsTitles).style('color', 'white');<br>
+                        createP('Pen Width').parent(optionsTitles).style('color', 'white');<br>
+                        createP('Pen Shape').parent(optionsTitles).style('color', 'white');<br>
+                        var optionsValues = createDiv().parent(options).style('margin: 10px 40px; width: 80px');<br>
+                        penColor = createColorPicker('#ffffff').parent(optionsValues);<br>
+                        penRandom = createCheckbox("", false).parent(optionsValues).style('display: inline').style('margin-top: 10px; width: 50px; height: 25px');<br>
+                        bgColor = createColorPicker('#000000').parent(optionsValues).style('margin-top: 10px');<br>
+                        penWidth = createSelect(false).parent(optionsValues).style('margin-top: 10px');<br>
+                        penWidth.option('1');<br>
+                        penWidth.option('2');<br>
+                        penWidth.option('4');<br>
+                        penWidth.option('8');<br>
+                        penWidth.option('16');<br>
+                        penWidth.option('32');<br>
+                        penWidth.selected('2');<br>
+                        penShape = createSelect(false).parent(optionsValues).style('margin-top: 10px; width: 50px; height: 25px');<br>
+                        penShape.option("Line");<br>
+                        penShape.option("Circle");<br>
+                        penShape.option("Rectangle");<br>
+                        penShape.option("Triangle");<br>
+                        penShape.option("Star");<br>
+                        clearBut = createButton('Clear').parent(options).style('width: 100px');<br>
+                    }<br>
+                    function draw() {<br>
+                        background(bgColor.value());<br>
+                        if (penRandom.checked()) {<br>
+                            var r = hex(floor(map(noise(frameCount / 100), 0, 1, 0, 255)), 2);<br>
+                            var g = hex(floor(map(noise(frameCount / 100 + 1000), 0, 1, 0, 255)), 2);<br>
+                            var b = hex(floor(map(noise(frameCount / 100 + 2000), 0, 1, 0, 255)), 2);<br>
+                            penColor.value("#" + r + g + b);<br>
+                        }<br>
+                        clearBut.mousePressed(function() {<br>
+                            lines = [];<br>
+                        });<br>
+                        if (mouseIsPressed) {<br>
+                            var line = new MyLine(penColor.value(), penWidth.value(), penShape.value());<br>
+                            lines.push(line);<br>
+                        }<br>
+                        for (var line of lines) {<br>
+                            line.show();<br>
+                        }<br>
+                    }<br>
+                    class MyLine {<br>
+                        constructor(penColor, penWidth, penShape) {<br>
+                            this.px = pmouseX;<br>
+                            this.py = pmouseY;<br>
+                            this.x = mouseX;<br>
+                            this.y = mouseY;<br>
+                            this.penColor = penColor;<br>
+                            this.penWidth = penWidth;<br>
+                            this.penShape = penShape;<br>
+                        }<br>
+                        show() {<br>
+                            if (this.penShape == "Line") {<br>
+                                stroke(this.penColor);<br>
+                                strokeWeight(this.penWidth);<br>
+                                line(this.px, this.py, this.x, this.y);<br>
+                            }<br>
+                            if (this.penShape === "Circle") {<br>
+                                fill(this.penColor);<br>
+                                noStroke();<br>
+                                ellipse(this.x, this.y, this.penWidth);<br>
+                            }<br>
+                            if (this.penShape === "Rectangle") {<br>
+                                fill(this.penColor);<br>
+                                noStroke();<br>
+                                rect(this.x, this.y, this.penWidth, this.penWidth);<br>
+                            }<br>
+                            if (this.penShape === "Triangle") {<br>
+                                fill(this.penColor);<br>
+                                noStroke();<br>
+                                push();<br>
+                                translate(this.x, this.y);<br>
+                                beginShape();<br>
+                                for (var i = 0; i &lt; 360; i += 120) {<br>
+                                    var rad = this.penWidth / 2;<br>
+                                    var x = rad * cos(i);<br>
+                                    var y = rad * sin(i);<br>
+                                    vertex(x, y);<br>
+                                }<br>
+                                endShape(CLOSE);<br>
+                                pop();<br>
+                            }<br>
+                            if (this.penShape === "Star") {<br>
+                                fill(this.penColor);<br>
+                                noStroke();<br>
+                                push();<br>
+                                translate(this.x, this.y);<br>
+                                beginShape();<br>
+                                for (var i = 0; i &lt; 720; i += 720 / 5) {<br>
+                                    var rad = this.penWidth / 2;<br>
+                                    var x = rad * cos(i);<br>
+                                    var y = rad * sin(i);<br>
+                                    vertex(x, y);<br>
+                                }<br>
+                                endShape(CLOSE);<br>
+                                pop();<br>
+                            }<br>
+                        }<br>
+                    }<br>
+                  &lt;/script&gt;<br>
+                &lt;/body&gt;<br>
+                &lt;/html&gt;
+                </p>
         </div>
     </div>
 
 
 
-
+    <!-- -----------------------------------------------------------            break         --------------------------------------------------------------------- -->
 
     
     <script src="script.js"></script>
