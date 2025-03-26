@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-    background(30, 30, 30, 7); 
+    background(0, 0, 0, 0);
 
     for (var i = 0; i < balls.length; i++) {
         balls[i].collide()
