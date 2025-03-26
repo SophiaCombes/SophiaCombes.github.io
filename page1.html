@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Add P5 JS Library -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   <style>
     body {
@@ -12,16 +12,16 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f0f0; /* Light background color */
+    background-image: url('images/code-images/starbg.gif'); background-size: cover; background-repeat: no-repeat;
     }
     #drawingCanvas {
-      border: 1px solid black; /* Optional: Add a border to the canvas */
+      border: 1px solid white;
     }
   </style>
 </head>
 <body>
 
-  <!-- Container for the drawing game -->
+
   <div id="drawingCanvas"></div>
 
   <script>
@@ -35,22 +35,24 @@
 
     function setup() {
         const canvas = createCanvas(800, 600);
-        canvas.parent('drawingCanvas'); // Attach the canvas to the div with id 'drawingCanvas'
+        canvas.parent('drawingCanvas');
         angleMode(DEGREES);
         noiseDetail(4);
-
+        
         var options = createDiv().style('display: flex').parent('drawingCanvas');
 
+
+
         var optionsTitles = createDiv().parent(options);
-        createP('Pen Color').parent(optionsTitles);
-        createP('Background Color').parent(optionsTitles);
-        createP('Pen Width').parent(optionsTitles);
-        createP('Pen Shape').parent(optionsTitles);
+        createP('Pen Color').parent(optionsTitles).style('color', 'white');
+        createP('Background Color').parent(optionsTitles).style('color', 'white');
+        createP('Pen Width').parent(optionsTitles).style('color', 'white');
+        createP('Pen Shape').parent(optionsTitles).style('color', 'white');
 
         var optionsValues = createDiv().parent(options).style('margin: 10px 40px; width: 80px');
         penColor = createColorPicker('#ffffff').parent(optionsValues);
         penRandom = createCheckbox("", false).parent(optionsValues).style('display: inline').style('margin-top: 10px; width: 50px; height: 25px');
-        bgColor = createColorPicker('#lelele').parent(optionsValues).style('margin-top: 10px');
+        bgColor = createColorPicker('#000000').parent(optionsValues).style('margin-top: 10px');
         penWidth = createSelect(false).parent(optionsValues).style('margin-top: 10px');
         penWidth.option('1');
         penWidth.option('2');

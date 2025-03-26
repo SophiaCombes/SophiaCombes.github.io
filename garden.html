@@ -22,7 +22,7 @@
     #drawingCanvas {
       width: 100%; /* Make the canvas fill the available width */
       height: 100%; /* Make the canvas fill the available height */
-      background: url('images/code-images/springbg.PNG') no-repeat center center; /* Set the background image */
+      background: url('images/code-images/summerbg.PNG') no-repeat center center; /* Set the background image */
       background-size: cover; /* Ensure the image covers the entire canvas */
       border: 1px solid black; /* Optional: Add a border to the canvas */
     }
@@ -82,21 +82,7 @@
         var b = 45 + random(-30, 30);
         fill(r, g, b, 150);
         noStroke();
-
-        beginShape();
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(i);
-          vertex(x, y);
-        }
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(-i) + 20;
-          vertex(x, y);
-        }
-        endShape(CLOSE);
+        ellipse(0, 0, 20, 20);
       }
       pop();
     }
@@ -113,26 +99,20 @@
         rotate(random(50, 60));
         branchType2(len * random(0.7, 0.9));
       } else {
-        var r = 240 + random(-20, 20);
-        var g = 180 + random(-20, 20);
-        var b = 210 + random(-20, 20);
+        var r = 220 + random(-20, 20);
+        var g = 120 + random(-20, 20);
+        var b = 170 + random(-20, 20);
         fill(r, g, b, 150);
         noStroke();
 
-        beginShape();
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(i);
-          vertex(x, y);
-        }
-        for (var i = 135; i > 40; i--) {
-          var rad = 15;
-          var x = rad * cos(i);
-          var y = rad * sin(-i) + 20;
-          vertex(x, y);
-        }
-        endShape(CLOSE);
+        translate(10, 10);
+         fill(r, g, b, 150);
+  for (let i = 0; i < 10; i++) {
+    ellipse(10, 10, 10, 10);
+    rotate(PI / 3);
+  }
+
+
       }
       pop();
     }
