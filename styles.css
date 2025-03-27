@@ -64,13 +64,12 @@ body {
     padding: 20px; /* Optional: Add padding for spacing inside the content area */
 }
 
-/* Style for the navbar divider GIF */
-.navbar-divider {
-    width: 80%; /* Adjust the width to fit within the navbar */
-    height: auto; /* Maintain aspect ratio */
-    margin: 3px auto; /* Center the GIF and add spacing */
-    display: block; /* Ensure it behaves like a block element */
-}
+
+
+
+
+
+
 /*nav bar ends here*/
 
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
