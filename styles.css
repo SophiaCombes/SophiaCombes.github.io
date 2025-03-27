@@ -37,12 +37,12 @@ body {
 
 /* Style for the image buttons */
 .sidebar a {
-    margin: 15px 0; /* Slightly reduced margin to fit images better */
+    margin: 5px 0; /* Slightly reduced margin to fit images better */
     display: block;
 }
 
 .sidebar img {
-    width: 220px; /* Nearly full width of the navbar */
+    width: 240px; /* Nearly full width of the navbar */
     height: auto;
     transition: transform 0.2s;
 }
@@ -64,6 +64,13 @@ body {
     padding: 20px; /* Optional: Add padding for spacing inside the content area */
 }
 
+/* Style for the navbar divider GIF */
+.navbar-divider {
+    width: 80%; /* Adjust the width to fit within the navbar */
+    height: auto; /* Maintain aspect ratio */
+    margin: 3px auto; /* Center the GIF and add spacing */
+    display: block; /* Ensure it behaves like a block element */
+}
 /*nav bar ends here*/
 
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
