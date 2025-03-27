@@ -762,3 +762,17 @@ div a img.three-d-image {
 div a img.code-image {
     margin-bottom: 10px; /* Reduce the bottom margin of the image */
 }
+
+/* ---------------------------------------------------               break               ----------------------------------------------------- */
+
+
+
+/* Style for the silly GIF */
+.silly-gif {
+    border: 5px solid white; /* Add a white border */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    display: block; /* Ensure it behaves like a block element */
+    max-width: 40%; /* Ensure it scales responsively */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 260px;
+}
