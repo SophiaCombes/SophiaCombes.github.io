@@ -580,10 +580,8 @@ body {
 
 .centered-image {
     text-align: center;
-    align-items: center;
-    width: 20%;
-    margin-top: -70px;
-    margin-left: 20%;
+    margin-left: 250px; /* Add margin to the left to account for the navbar width */
+    width: calc(100% - 300px); /* Ensure the image scales properly and doesn't overflow */
 }
 
 .video-container {
@@ -592,8 +590,19 @@ body {
     align-items: center;
     width: 100%; 
     height: auto; 
+    
 }
 
+.video2pfp {
+    width: 1120px; /* Set the width to 1120px */
+    height: 630px; /* Set the height to 630px */
+    object-fit: cover; /* Ensure the image scales properly */
+    display: block; /* Ensure the image behaves like a block element */
+    margin: 20px auto; /* Center the image horizontally and add spacing */
+    position: relative; /* Ensure it respects the layout flow */
+    left: 300px; /* Offset the image slightly to account for the navbar width */
+    border: #8cd3e2 10px solid; /* Add a border around the image */
+}
 
 /* Container for the video2pfp image and hover text */
 .video2pfp-container {
@@ -605,7 +614,7 @@ body {
 .video2pfp-container .hover-text {
     position: absolute;
     top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
+    left: 75%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust for perfect centering */
     color: white; /* Text color */
     font-size: 24px; /* Font size for the text */
@@ -624,52 +633,6 @@ body {
 }
 
 
-/* Center the video2pfp-container on the page */
-.video2pfp-container {
-    display: flex; /* Use flexbox to center the content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
-    margin: -200px auto; /* Center the container horizontally */
-}
-
-/* Style for the video2pfp image */
-.video2pfp {
-    width: 600px; /* Set a smaller width for the image */
-    height: 400px; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure the image scales properly */
-    border: #8cd3e2 5px solid; /* Add a border around the image */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    transition: transform 0.3s ease; /* Optional: Add a hover effect */
-    margin-left: inherit;
-}
-
-/* Hover effect for the video2pfp image */
-.video2pfp:hover {
-    transform: scale(1.05); /* Slightly zoom in on hover */
-}
-
-/* Style for the hover text */
-.video2pfp-container .hover-text {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for perfect centering */
-    color: white; /* Text color */
-    font-size: 16px; /* Adjust font size */
-    font-weight: bold; /* Make the text bold */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    padding: 10px 20px; /* Add padding around the text */
-    border-radius: 5px; /* Optional: Add rounded corners */
-    opacity: 0; /* Initially hide the text */
-    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
-    pointer-events: none; /* Prevent the text from interfering with clicks */
-}
-
-/* Show the hover text when hovering over the container */
-.video2pfp-container:hover .hover-text {
-    opacity: 1; /* Make the text visible */
-}
 
 /* ---------------------------------------------------               break               ----------------------------------------------------- */
 
