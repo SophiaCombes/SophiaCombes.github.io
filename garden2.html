@@ -7,7 +7,7 @@
   <title>SophiaCo</title>
   <link rel="icon" href="images/nav-images/favicon.gif" type="image/gif">
 
-  <!-- Add P5 JS Library -->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   <style>
     body {
@@ -16,21 +16,22 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #ffffff; /* Optional: Set a plain background for the body */
+      background: #ffffff; 
+      cursor: url("images/code-images/can.png"), auto;
     }
 
     #drawingCanvas {
-      width: 100%; /* Make the canvas fill the available width */
-      height: 100%; /* Make the canvas fill the available height */
-      background: url('images/code-images/summerbg.PNG') no-repeat center center; /* Set the background image */
-      background-size: cover; /* Ensure the image covers the entire canvas */
-      border: 1px solid black; /* Optional: Add a border to the canvas */
+      width: 100%; 
+      height: 100%; 
+      background: url('images/code-images/summerbg.PNG') no-repeat center center; 
+      background-size: cover; 
+      border: 1px solid black; 
     }
   </style>
 </head>
 <body>
 
-  <!-- Container for the drawing game -->
+  
   <div id="drawingCanvas"></div>
 
   <script>
@@ -38,17 +39,17 @@
 
     function setup() {
       const canvas = createCanvas(windowWidth, windowHeight);
-      canvas.parent('drawingCanvas'); // Attach the canvas to the div with id 'drawingCanvas'
+      canvas.parent('drawingCanvas'); 
       angleMode(DEGREES);
       
     }
 
     function draw() {
-      // No drawing code here, as we will draw the tree on mouse press
+    
     }
 
     function mousePressed() {
-      // Draw the tree at the mouse position when the mouse is pressed
+  
       translate(mouseX, mouseY);
       if (currentTreeType === 1) {
         branchType1(100);
