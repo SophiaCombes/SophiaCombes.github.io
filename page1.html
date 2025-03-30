@@ -12,8 +12,6 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      cursor: url("https://watermelon.crd.co/assets/images/gallery05/cd2c9c7e.gif?v=6332de85"), auto;
-      cursor: url("https://64.media.tumblr.com/08de6dbfb4dc793ad803842487dc689c/b4746bdbb4997815-30/s75x75_c1/e113674abedfb44e71e4ac318415bebb6bc19bd8.gifv"), pointer;
     background-image: url('images/code-images/starbg.gif'); background-size: cover; background-repeat: no-repeat;
     }
     #drawingCanvas {
@@ -34,6 +32,7 @@
     var clearBut;
     var penShape;
     var penRandom;
+    var symmetry = 6;
 
     function setup() {
         const canvas = createCanvas(800, 600);
@@ -101,10 +100,10 @@
 
     class MyLine {
         constructor(penColor, penWidth, penShape) {
-            this.px = pmouseX;
-            this.py = pmouseY;
-            this.x = mouseX;
-            this.y = mouseY;
+            this.px = pmouseX - width / 2;
+            this.py = pmouseY - height / 2;
+            this.x = mouseX - width / 2;
+            this.y = mouseY - height / 2;
 
             this.penColor = penColor;
             this.penWidth = penWidth;
@@ -112,6 +111,18 @@
         }
 
         show() {
+            translate(width / 2, height / 2);
+            for (let i = 0; i < symmetry; i++) {
+                rotate(360 / symmetry);
+                this.drawShape();
+                scale(1, -1); // Mirror symmetry
+                this.drawShape();
+                scale(1, -1); // Reset scale
+            }
+            resetMatrix();
+        }
+
+        drawShape() {
             if (this.penShape == "Line") {
                 stroke(this.penColor);
                 strokeWeight(this.penWidth);
