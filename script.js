@@ -1,88 +1,72 @@
+/***********************
+ * CAROUSEL (safe)
+ ***********************/
+try {
+  document.querySelectorAll('.carousel-container').forEach((carouselContainer) => {
+    const images = carouselContainer.querySelectorAll('.carousel img');
+    const leftArrow = carouselContainer.querySelector('.left-arrow');
+    const rightArrow = carouselContainer.querySelector('.right-arrow');
+    const dots = carouselContainer.querySelectorAll('.scrollbar .dot');
+    let currentIndex = 0;
 
-document.querySelectorAll('.carousel-container').forEach((carouselContainer) => {
-  const images = carouselContainer.querySelectorAll('.carousel img');
-  const leftArrow = carouselContainer.querySelector('.left-arrow');
-  const rightArrow = carouselContainer.querySelector('.right-arrow');
-  const dots = carouselContainer.querySelectorAll('.scrollbar .dot');
-  let currentIndex = 0;
-
-
-  if (!images || images.length === 0) return;
-
-  
-  function hideAll() {
-    images.forEach((img) => img.style.display = 'none');
-    if (dots && dots.length) {
-      dots.forEach(d => d.classList.remove('active'));
-    }
-  }
-
-  function showIndex(idx) {
     if (!images || images.length === 0) return;
-    hideAll();
-    currentIndex = ((idx % images.length) + images.length) % images.length;
-    images[currentIndex].style.display = 'block';
-    if (dots && dots[currentIndex]) dots[currentIndex].classList.add('active');
-  }
 
-  function showNextImage() {
-    showIndex(currentIndex + 1);
-  }
+    function hideAll() {
+      images.forEach((img) => (img.style.display = 'none'));
+      if (dots && dots.length) dots.forEach((d) => d.classList.remove('active'));
+    }
 
-  function showPreviousImage() {
-    showIndex(currentIndex - 1);
-  }
+    function showIndex(idx) {
+      if (!images || images.length === 0) return;
+      hideAll();
+      currentIndex = ((idx % images.length) + images.length) % images.length;
+      images[currentIndex].style.display = 'block';
+      if (dots && dots[currentIndex]) dots[currentIndex].classList.add('active');
+    }
 
-  if (leftArrow) {
-    leftArrow.addEventListener('click', (event) => {
-      event.preventDefault();
-      showPreviousImage();
-    });
-  }
+    function showNextImage() { showIndex(currentIndex + 1); }
+    function showPreviousImage() { showIndex(currentIndex - 1); }
 
-  if (rightArrow) {
-    rightArrow.addEventListener('click', (event) => {
-      event.preventDefault();
-      showNextImage();
-    });
-  }
+    if (leftArrow) leftArrow.addEventListener('click', (e) => { e.preventDefault(); showPreviousImage(); });
+    if (rightArrow) rightArrow.addEventListener('click', (e) => { e.preventDefault(); showNextImage(); });
 
+    if (dots && dots.length) {
+      dots.forEach((dot, i) => dot.addEventListener('click', (e) => { e.preventDefault(); showIndex(i); }));
+    }
 
-  if (dots && dots.length) {
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', (e) => {
-        e.preventDefault();
-        showIndex(i);
+    showIndex(0);
+  });
+} catch (e) {
+  console.warn('Carousel init error (ignored):', e);
+}
+
+/***********************
+ * FULLSCREEN OVERLAY (safe)
+ ***********************/
+try {
+  const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+  const fullscreenImage = document.getElementById('fullscreenImage');
+
+  if (fullscreenOverlay && fullscreenImage) {
+    const galleryImages = document.querySelectorAll('.gallery-image');
+    galleryImages.forEach((image) => {
+      image.addEventListener('click', () => {
+        fullscreenImage.src = image.src;
+        fullscreenOverlay.style.display = 'flex';
       });
     });
+
+    fullscreenOverlay.addEventListener('click', () => {
+      fullscreenOverlay.style.display = 'none';
+    });
   }
+} catch (e) {
+  console.warn('Fullscreen overlay init error (ignored):', e);
+}
 
-  
-  showIndex(0);
-});
-
-
-const fullscreenOverlay = document.getElementById('fullscreenOverlay');
-const fullscreenImage = document.getElementById('fullscreenImage');
-
-
-const galleryImages = document.querySelectorAll('.gallery-image');
-galleryImages.forEach(image => {
-  image.addEventListener('click', () => {
-    fullscreenImage.src = image.src; 
-    fullscreenOverlay.style.display = 'flex'; 
-  });
-});
-
-
-fullscreenOverlay.addEventListener('click', () => {
-  fullscreenOverlay.style.display = 'none'; 
-});
-
-
-
-
-
+/***********************
+ * NEKO (mouse-following cat)
+ ***********************/
 (function () {
   const SPRITE_SETS = {
     idle: [[-3, -3]],
@@ -111,26 +95,26 @@ fullscreenOverlay.addEventListener('click', () => {
   function setSprite(name, frame) {
     if (!el) return;
     const s = SPRITE_SETS[name][frame % SPRITE_SETS[name].length];
-    el.style.backgroundPosition = `${s[0]*cfg.frame}px ${s[1]*cfg.frame}px`;
+    el.style.backgroundPosition = `${s[0] * cfg.frame}px ${s[1] * cfg.frame}px`;
   }
 
   function resetIdle() { idleAnim = null; idleAnimFrame = 0; }
 
   function idle() {
     idleTime += 1;
-    if (idleTime > 10 && Math.floor(Math.random()*200) === 0 && idleAnim == null) {
+    if (idleTime > 10 && Math.floor(Math.random() * 200) === 0 && idleAnim == null) {
       const choices = ["sleeping", "scratchSelf"];
       if (nekoX < cfg.frame) choices.push("scratchWallW");
       if (nekoY < cfg.frame) choices.push("scratchWallN");
       if (nekoX > window.innerWidth - cfg.frame) choices.push("scratchWallE");
       if (nekoY > window.innerHeight - cfg.frame) choices.push("scratchWallS");
-      idleAnim = choices[Math.floor(Math.random()*choices.length)];
+      idleAnim = choices[Math.floor(Math.random() * choices.length)];
     }
 
     switch (idleAnim) {
       case "sleeping":
         if (idleAnimFrame < 8) { setSprite("tired", 0); break; }
-        setSprite("sleeping", Math.floor(idleAnimFrame/4));
+        setSprite("sleeping", Math.floor(idleAnimFrame / 4));
         if (idleAnimFrame > 192) resetIdle();
         break;
       case "scratchWallN":
@@ -159,26 +143,26 @@ fullscreenOverlay.addEventListener('click', () => {
 
     if (idleTime > 1) {
       setSprite("alert", 0);
-      idleTime = Math.min(idleTime, 7) - 1; 
+      idleTime = Math.min(idleTime, 7) - 1;
       return;
     }
 
     let dir = "";
-    dir += (dy / dist >  0.5) ? "N" : "";
+    dir += (dy / dist > 0.5) ? "N" : "";
     dir += (dy / dist < -0.5) ? "S" : "";
-    dir += (dx / dist >  0.5) ? "W" : "";
+    dir += (dx / dist > 0.5) ? "W" : "";
     dir += (dx / dist < -0.5) ? "E" : "";
     setSprite(dir, frameCount);
 
     nekoX -= (dx / dist) * cfg.speed;
     nekoY -= (dy / dist) * cfg.speed;
 
-    const pad = cfg.frame/2; 
-    nekoX = Math.min(Math.max(pad, nekoX), window.innerWidth  - pad);
+    const pad = cfg.frame / 2;
+    nekoX = Math.min(Math.max(pad, nekoX), window.innerWidth - pad);
     nekoY = Math.min(Math.max(pad, nekoY), window.innerHeight - pad);
 
     el.style.left = (nekoX - pad) + "px";
-    el.style.top  = (nekoY - pad) + "px";
+    el.style.top = (nekoY - pad) + "px";
   }
 
   function loop(ts) {
@@ -188,20 +172,20 @@ fullscreenOverlay.addEventListener('click', () => {
     rafId = requestAnimationFrame(loop);
   }
 
-  function onMouseMove(e){ mouseX = e.clientX; mouseY = e.clientY; }
+  function onMouseMove(e) { mouseX = e.clientX; mouseY = e.clientY; }
 
   function create() {
     el = document.createElement("div");
     el.id = cfg.id;
-    el.setAttribute("aria-hidden","true");
+    el.setAttribute("aria-hidden", "true");
     Object.assign(el.style, {
-      width: cfg.frame+"px",
-      height: cfg.frame+"px",
+      width: cfg.frame + "px",
+      height: cfg.frame + "px",
       position: "fixed",
       pointerEvents: "none",
       imageRendering: "pixelated",
-      left: (nekoX - cfg.frame/2) + "px",
-      top:  (nekoY - cfg.frame/2) + "px",
+      left: (nekoX - cfg.frame / 2) + "px",
+      top: (nekoY - cfg.frame / 2) + "px",
       zIndex: String(cfg.zIndex),
       backgroundImage: `url(${cfg.spriteURL})`,
       backgroundRepeat: "no-repeat",
@@ -222,16 +206,15 @@ fullscreenOverlay.addEventListener('click', () => {
 
     cfg = Object.assign({
       id: "oneko",
-      spriteURL: "",          
-      frame: 32,              
-      speed: 10,              
-      frameMs: 100,           
-      followDistance: 48,     
+      spriteURL: "",
+      frame: 32,
+      speed: 10,
+      frameMs: 100,
+      followDistance: 48,
       zIndex: 2147483647
     }, options || {});
     if (!cfg.spriteURL) { console.error("[Neko] Missing spriteURL"); return; }
 
-    // reset state
     frameCount = 0; idleTime = 0; idleAnim = null; idleAnimFrame = 0;
     nekoX = cfg.frame; nekoY = cfg.frame; mouseX = nekoX; mouseY = nekoY;
 
@@ -240,18 +223,13 @@ fullscreenOverlay.addEventListener('click', () => {
     rafId = requestAnimationFrame(loop);
   }
 
-  window.Neko = {
-    start,
-    stop: destroy,
-    isRunning: () => !!el
-  };
+  window.Neko = { start, stop: destroy, isRunning: () => !!el };
 })();
 
-
-Neko.start({
-  spriteURL: "images/neko.png",
-
-});
-
-
-
+/* Start Neko (absolute image path so it works from any page) */
+if (!window.Neko?.isRunning?.()) {
+  Neko.start({
+    spriteURL: "/images/neko.png"
+    // optional: speed: 8, frameMs: 80, zIndex: 999999
+  });
+}
