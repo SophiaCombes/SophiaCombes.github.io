@@ -64,6 +64,11 @@ try {
   console.warn('Fullscreen overlay init error (ignored):', e);
 }
 
+
+
+
+
+
 /***********************
  * NEKO (mouse-following cat)
  ***********************/
@@ -100,9 +105,13 @@ try {
 
   function resetIdle() { idleAnim = null; idleAnimFrame = 0; }
 
+  // ---- Increased emote frequency here ----
   function idle() {
     idleTime += 1;
-    if (idleTime > 10 && Math.floor(Math.random() * 200) === 0 && idleAnim == null) {
+
+    // higher chance of triggering emotes (scratch/sleep)
+    // was 1 in 200 chance → now 1 in 40 chance
+    if (idleTime > 10 && Math.floor(Math.random() * 40) === 0 && idleAnim == null) {
       const choices = ["sleeping", "scratchSelf"];
       if (nekoX < cfg.frame) choices.push("scratchWallW");
       if (nekoY < cfg.frame) choices.push("scratchWallN");
@@ -226,7 +235,7 @@ try {
   window.Neko = { start, stop: destroy, isRunning: () => !!el };
 })();
 
-/* Start Neko (absolute image path so it works from any page) */
+/* Start Neko on every page (absolute image path so it works anywhere) */
 if (!window.Neko?.isRunning?.()) {
   Neko.start({
     spriteURL: "/images/neko.png"
